@@ -3,29 +3,27 @@
   <component name="ChangeListManager">
     <list default="true" id="48bf73db-f4d1-40cc-b79d-a0be783d024d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/application_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/application_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/application.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/application.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/initializers/cors.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/initializers/cors.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/development.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/development.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/rails_helper.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/rails_helper.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/cache/bootsnap/compile-cache-iseq/12/340d0546c1656f" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/cache/bootsnap/compile-cache-iseq/12/340d0546c1656f" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/cache/bootsnap/compile-cache-iseq/30/ad07b4c0ceeb4b" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/cache/bootsnap/compile-cache-iseq/30/ad07b4c0ceeb4b" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/cache/bootsnap/compile-cache-iseq/38/2954e5c26fb99d" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/cache/bootsnap/compile-cache-iseq/38/2954e5c26fb99d" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/cache/bootsnap/compile-cache-iseq/4d/c6be7b54bd9f89" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/cache/bootsnap/compile-cache-iseq/4d/c6be7b54bd9f89" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/cache/bootsnap/compile-cache-iseq/6f/7e2d38e32bb41e" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/cache/bootsnap/compile-cache-iseq/6f/7e2d38e32bb41e" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/cache/bootsnap/compile-cache-iseq/a9/34f2a6a76069ac" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/cache/bootsnap/compile-cache-iseq/a9/34f2a6a76069ac" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/cache/bootsnap/compile-cache-iseq/ab/9374f366d1ea61" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/cache/bootsnap/compile-cache-iseq/ab/9374f366d1ea61" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/cache/bootsnap/compile-cache-iseq/b0/c0a7560c1fb275" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/cache/bootsnap/compile-cache-iseq/b0/c0a7560c1fb275" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/api/v1/brands_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/api/v1/brands_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/user.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/user.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/requests/brands_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/requests/brands_spec.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/routing/brands_routing_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/routing/brands_routing_spec.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/spec_helper.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/spec_helper.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/support/factory_bot.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/support/factory_bot.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/cache/bootsnap/compile-cache-iseq/48/2c7cb7926a501a" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/cache/bootsnap/compile-cache-iseq/48/2c7cb7926a501a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/cache/bootsnap/compile-cache-iseq/f5/fae32c4ebed71a" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/cache/bootsnap/compile-cache-iseq/f5/fae32c4ebed71a" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tmp/cache/bootsnap/load-path-cache" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/cache/bootsnap/load-path-cache" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Ruby File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -167,7 +165,8 @@
       <option name="presentableId" value="Default" />
       <updated>1666032956467</updated>
       <workItem from="1666032958582" duration="1639000" />
-      <workItem from="1666101188166" duration="5986000" />
+      <workItem from="1666101188166" duration="18692000" />
+      <workItem from="1666354867891" duration="3459000" />
     </task>
     <servers />
   </component>
