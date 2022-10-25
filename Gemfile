@@ -42,6 +42,7 @@ group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   gem 'rspec-rails'
   gem 'factory_bot_rails'
+  gem 'simplecov'
 end
 
 group :development do

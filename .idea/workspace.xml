@@ -3,13 +3,21 @@
   <component name="ChangeListManager">
     <list default="true" id="48bf73db-f4d1-40cc-b79d-a0be783d024d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/user.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/user.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/api/v1/brands_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/api/v1/brands_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/application_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/application_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/brand.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/brand.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/log/development.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/development.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/log/test.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/test.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/models/user_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/models/user_spec.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/requests/brands_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/requests/brands_spec.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/spec_helper.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/spec_helper.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/cache/bootsnap/compile-cache-iseq/0b/13ede14daac7b7" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/cache/bootsnap/compile-cache-iseq/0b/13ede14daac7b7" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/cache/bootsnap/compile-cache-iseq/15/6a9106115aa9b7" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/cache/bootsnap/compile-cache-iseq/15/6a9106115aa9b7" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tmp/cache/bootsnap/compile-cache-iseq/33/783daeb2f83ebc" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/cache/bootsnap/compile-cache-iseq/33/783daeb2f83ebc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/cache/bootsnap/compile-cache-iseq/e9/f2b104acc29994" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/cache/bootsnap/compile-cache-iseq/e9/f2b104acc29994" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/cache/bootsnap/compile-cache-iseq/48/2c7cb7926a501a" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/cache/bootsnap/compile-cache-iseq/48/2c7cb7926a501a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/cache/bootsnap/compile-cache-iseq/ba/49c8a27a26dcd0" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/cache/bootsnap/compile-cache-iseq/ba/49c8a27a26dcd0" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tmp/cache/bootsnap/load-path-cache" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/cache/bootsnap/load-path-cache" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -52,6 +60,8 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lib" />
+      <recent name="$PROJECT_DIR$/app/errors" />
       <recent name="$PROJECT_DIR$/app/controllers/api/v1" />
     </key>
   </component>
@@ -165,7 +175,8 @@
       <updated>1666032956467</updated>
       <workItem from="1666032958582" duration="1639000" />
       <workItem from="1666101188166" duration="18692000" />
-      <workItem from="1666354867891" duration="5785000" />
+      <workItem from="1666354867891" duration="15174000" />
+      <workItem from="1666718372545" duration="8610000" />
     </task>
     <servers />
   </component>
