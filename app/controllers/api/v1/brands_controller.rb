@@ -38,11 +38,7 @@ module Api
 
       private
       def set_brand
-        if @brand = Brand.find(params[:id])
-          @brand
-        else
-
-        end
+        @brand = Brand.find(params[:id])
       end
       def brand_params
         params.require(:brand).permit(:name)

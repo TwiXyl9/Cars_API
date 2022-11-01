@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   # root "articles#index"
   namespace :api do
     namespace :v1 do
-      resources :brands
+      resources :brands do
+        resources :models
+      end
     end
   end
 end
