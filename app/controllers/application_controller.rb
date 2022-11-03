@@ -4,13 +4,18 @@ class ApplicationController < ActionController::API
         include DeviseTokenAuth::Concerns::SetUserByToken
         include ActionController::Helpers
         helper_method :is_moderator?
+        rescue_from ActiveRecord::RecordNotFound, with: :id_not_found
 
         protected
         def configure_permitted_parameters
                 devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :surname, :phone])
         end
-        def is_admin?
+        def is_moderator?
                 return head :unauthorized unless current_user
                 raise(Errors::LackAccessRights)  unless !current_user.user?
+        end
+
+        def id_not_found(e)
+                render json: {errors: e}, status: :not_found
         end
     end

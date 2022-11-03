@@ -33,7 +33,11 @@ module Api
       end
 
       def destroy
-        @brand.destroy
+        if @brand.destroy
+          render json: :no_content
+        else
+          render json: @brand.errors, status: :unprocessable_entity
+        end
       end
 
       private
