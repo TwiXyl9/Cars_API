@@ -42,7 +42,6 @@ module Api
 
       def destroy
         @ad.destroy
-        render head: :no_content
       end
 
       private

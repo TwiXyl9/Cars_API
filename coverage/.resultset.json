@@ -243,8 +243,30 @@
           null
         ]
       },
+      "/Users/ulianajrapetov/Desktop/Ruby/Cars_API/spec/factories/ads.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
       "/Users/ulianajrapetov/Desktop/Ruby/Cars_API/spec/factories/brands.rb": {
         "lines": [
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/ulianajrapetov/Desktop/Ruby/Cars_API/spec/factories/cars.rb": {
+        "lines": [
+          1,
           1,
           1,
           1,
@@ -282,6 +304,7 @@
           1,
           1,
           1,
+          1,
           null,
           null,
           null,
@@ -292,6 +315,7 @@
         "lines": [
           null,
           null,
+          1,
           1,
           1,
           1,
@@ -313,6 +337,51 @@
           null
         ]
       },
+      "/Users/ulianajrapetov/Desktop/Ruby/Cars_API/app/models/ad.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          0,
+          null,
+          null
+        ]
+      },
+      "/Users/ulianajrapetov/Desktop/Ruby/Cars_API/app/models/application_record.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/ulianajrapetov/Desktop/Ruby/Cars_API/spec/models/brand_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
       "/Users/ulianajrapetov/Desktop/Ruby/Cars_API/app/models/brand.rb": {
         "lines": [
           1,
@@ -321,8 +390,21 @@
           null
         ]
       },
-      "/Users/ulianajrapetov/Desktop/Ruby/Cars_API/app/models/application_record.rb": {
+      "/Users/ulianajrapetov/Desktop/Ruby/Cars_API/spec/models/car_spec.rb": {
         "lines": [
+          1,
+          null,
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/ulianajrapetov/Desktop/Ruby/Cars_API/app/models/car.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
           1,
           1,
           null
@@ -360,6 +442,7 @@
           1,
           1,
           1,
+          1,
           null
         ]
       },
@@ -381,6 +464,17 @@
           null,
           1,
           null,
+          null,
+          null
+        ]
+      },
+      "/Users/ulianajrapetov/Desktop/Ruby/Cars_API/spec/requests/api/v1/ads_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
           null,
           null
         ]
@@ -619,6 +713,7 @@
           1,
           1,
           1,
+          1,
           null,
           1,
           1,
@@ -627,6 +722,10 @@
           1,
           22,
           16,
+          null,
+          null,
+          1,
+          0,
           null,
           null
         ]
@@ -900,6 +999,6 @@
         ]
       }
     },
-    "timestamp": 1666803720
+    "timestamp": 1667471646
   }
 }

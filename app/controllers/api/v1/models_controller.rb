@@ -2,7 +2,7 @@ module Api
   module V1
     class ModelsController < ApplicationController
       before_action :set_model, only: %i[ show update destroy]
-      before_action :is_admin?, only: %i[ create update destroy]
+      before_action :moderator?, only: %i[ create update destroy]
       def index
         @models = Model.all
 

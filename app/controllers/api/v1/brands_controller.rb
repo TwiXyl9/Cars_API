@@ -3,7 +3,7 @@ module Api
   module V1
     class BrandsController < ApplicationController
       before_action :set_brand, only: %i[ show update destroy]
-      before_action :is_admin?, only: %i[ create update destroy]
+      before_action :moderator?, only: %i[ create update destroy]
       def index
         @brands = Brand.all
 
@@ -33,11 +33,7 @@ module Api
       end
 
       def destroy
-        if @brand.destroy
-          render json: :no_content
-        else
-          render json: @brand.errors, status: :unprocessable_entity
-        end
+        @brand.destroy
       end
 
       private
