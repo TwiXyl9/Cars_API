@@ -6,7 +6,7 @@ module Api
 
       def index
         @ads = Ad.all.with_attached_photos
-        render json: @ads.map { |ad| ad.as_json.merge({ photos: ad.photos.map{|photo| ({ photo: url_for(photo) })} })     }
+        render json: AdsRepresenter.new(@ads).to_json
       end
 
       def show
@@ -15,7 +15,6 @@ module Api
 
       def create
         @car = Car.find_or_create_by(creation_year: car_params[:creation_year], engine_capacity: car_params[:engine_capacity], model_id: car_params[:model_id])
-        p @car.inspect
         if !@car.save
           render json: @car.errors, status: :unprocessable_entity
         end

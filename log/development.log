@@ -5271,3 +5271,867 @@ Completed 201 Created in 71ms (Views: 0.3ms | ActiveRecord: 13.3ms | Allocations
 [ActiveJob] [ActiveStorage::AnalyzeJob] [72c690d1-6730-453d-bff6-262136eebd96] Performed ActiveStorage::AnalyzeJob (Job ID: 72c690d1-6730-453d-bff6-262136eebd96) from Async(default) in 30.41ms
 [ActiveJob] [ActiveStorage::AnalyzeJob] [61d73586-0473-429e-90f4-348e78c46c8e] Performed ActiveStorage::AnalyzeJob (Job ID: 61d73586-0473-429e-90f4-348e78c46c8e) from Async(default) in 42.19ms
   [1m[36mCar Load (2.6ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+Started POST "/api/v1/ads" for ::1 at 2022-11-22 22:46:57 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::AdsController#create as */*
+  Parameters: {"car"=>{"engine_capacity"=>"2.4", "creation_year"=>"1996", "model_id"=>"1"}, "ad"=>{"price"=>"6000", "description"=>"Green candy", "user_id"=>"1", "photos"=>[#<ActionDispatch::Http::UploadedFile:0x000000010f687968 @tempfile=#<Tempfile:/var/folders/cw/0cz9t48d5ybd80yqjvmbbtjm0000gn/T/RackMultipart20221122-69743-3j9qjv.jpeg>, @original_filename="images.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"ad[photos][]\"; filename=\"images.jpeg\"\r\nContent-Type: image/jpeg\r\n">, #<ActionDispatch::Http::UploadedFile:0x000000010f6878c8 @tempfile=#<Tempfile:/var/folders/cw/0cz9t48d5ybd80yqjvmbbtjm0000gn/T/RackMultipart20221122-69743-6xxk4m.jpg>, @original_filename="9a6858as-960.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"ad[photos][]\"; filename=\"9a6858as-960.jpg\"\r\nContent-Type: image/jpeg\r\n">]}}
+  [1m[36mCar Load (5.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."creation_year" = $1 AND "cars"."engine_capacity" = $2 AND "cars"."model_id" = $3 LIMIT $4[0m  [["creation_year", 1996], ["engine_capacity", 2.4], ["model_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/ads_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/ads_controller.rb:19:in `create'
+  [1m[36mModel Load (7.5ms)[0m  [1m[34mSELECT "models".* FROM "models" WHERE "models"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/ads_controller.rb:19:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/ads_controller.rb:19:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/ads_controller.rb:23:in `create'
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/ads_controller.rb:23:in `create'
+  [1m[36mCar Load (0.5ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/ads_controller.rb:23:in `create'
+  [1m[36mAd Create (5.9ms)[0m  [1m[32mINSERT INTO "ads" ("description", "price", "stage", "reason_for_rejection", "created_at", "updated_at", "car_id", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["description", "Green candy"], ["price", 6000], ["stage", 0], ["reason_for_rejection", nil], ["created_at", "2022-11-22 19:46:57.665630"], ["updated_at", "2022-11-22 19:46:57.665630"], ["car_id", 3], ["user_id", 1]]
+  ↳ app/controllers/api/v1/ads_controller.rb:23:in `create'
+  [1m[36mActiveStorage::Blob Create (1.4ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["key", "75kmx8qkytqp6e0o3c3xejd798r3"], ["filename", "images.jpeg"], ["content_type", "image/jpeg"], ["metadata", "{\"identified\":true}"], ["service_name", "local"], ["byte_size", 5592], ["checksum", "yrNtKMb7lL7sNtbuMSoddA=="], ["created_at", "2022-11-22 19:46:57.673933"]]
+  ↳ app/controllers/api/v1/ads_controller.rb:23:in `create'
+  [1m[36mActiveStorage::Attachment Create (1.7ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "photos"], ["record_type", "Ad"], ["record_id", 3], ["blob_id", 5], ["created_at", "2022-11-22 19:46:57.677380"]]
+  ↳ app/controllers/api/v1/ads_controller.rb:23:in `create'
+  [1m[36mActiveStorage::Blob Create (0.4ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["key", "7ff97ajmro4nrq2znzawam4rvd4j"], ["filename", "9a6858as-960.jpg"], ["content_type", "image/jpeg"], ["metadata", "{\"identified\":true}"], ["service_name", "local"], ["byte_size", 175355], ["checksum", "ffHPZoujDvdDjlYfV07E0g=="], ["created_at", "2022-11-22 19:46:57.681171"]]
+  ↳ app/controllers/api/v1/ads_controller.rb:23:in `create'
+  [1m[36mActiveStorage::Attachment Create (0.4ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "photos"], ["record_type", "Ad"], ["record_id", 3], ["blob_id", 6], ["created_at", "2022-11-22 19:46:57.683115"]]
+  ↳ app/controllers/api/v1/ads_controller.rb:23:in `create'
+  [1m[36mAd Update (4.8ms)[0m  [1m[33mUPDATE "ads" SET "updated_at" = $1 WHERE "ads"."id" = $2[0m  [["updated_at", "2022-11-22 19:46:57.684778"], ["id", 3]]
+  ↳ app/controllers/api/v1/ads_controller.rb:23:in `create'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/ads_controller.rb:23:in `create'
+[36m  Disk Storage (2.7ms) [0m[32mUploaded file to key: 75kmx8qkytqp6e0o3c3xejd798r3 (checksum: yrNtKMb7lL7sNtbuMSoddA==)[0m
+[36m  Disk Storage (5.6ms) [0m[32mUploaded file to key: 7ff97ajmro4nrq2znzawam4rvd4j (checksum: ffHPZoujDvdDjlYfV07E0g==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: f8acf51a-1b24-40c8-bfb1-d0bf067803c1) to Async(default) with arguments: #<GlobalID:0x000000010fbb54d0 @uri=#<URI::GID gid://cars-api/ActiveStorage::Blob/5>>
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 59110cbd-0893-410c-9ffa-73a1ae034c67) to Async(default) with arguments: #<GlobalID:0x000000010fbc42f0 @uri=#<URI::GID gid://cars-api/ActiveStorage::Blob/6>>
+Completed 201 Created in 200ms (Views: 0.3ms | ActiveRecord: 82.6ms | Allocations: 69534)
+
+
+[ActiveJob] [ActiveStorage::AnalyzeJob] [f8acf51a-1b24-40c8-bfb1-d0bf067803c1]   [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [f8acf51a-1b24-40c8-bfb1-d0bf067803c1] Performing ActiveStorage::AnalyzeJob (Job ID: f8acf51a-1b24-40c8-bfb1-d0bf067803c1) from Async(default) enqueued at 2022-11-22T19:46:57Z with arguments: #<GlobalID:0x000000010fc37390 @uri=#<URI::GID gid://cars-api/ActiveStorage::Blob/5>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [f8acf51a-1b24-40c8-bfb1-d0bf067803c1] Skipping image analysis because the ruby-vips gem isn't installed
+[ActiveJob] [ActiveStorage::AnalyzeJob] [f8acf51a-1b24-40c8-bfb1-d0bf067803c1]   [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [f8acf51a-1b24-40c8-bfb1-d0bf067803c1]   [1m[36mActiveStorage::Blob Update (0.4ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = $1 WHERE "active_storage_blobs"."id" = $2[0m  [["metadata", "{\"identified\":true,\"analyzed\":true}"], ["id", 5]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [f8acf51a-1b24-40c8-bfb1-d0bf067803c1]   [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [f8acf51a-1b24-40c8-bfb1-d0bf067803c1] Performed ActiveStorage::AnalyzeJob (Job ID: f8acf51a-1b24-40c8-bfb1-d0bf067803c1) from Async(default) in 22.58ms
+[ActiveJob] [ActiveStorage::AnalyzeJob] [59110cbd-0893-410c-9ffa-73a1ae034c67]   [1m[36mActiveStorage::Blob Load (0.7ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [59110cbd-0893-410c-9ffa-73a1ae034c67] Performing ActiveStorage::AnalyzeJob (Job ID: 59110cbd-0893-410c-9ffa-73a1ae034c67) from Async(default) enqueued at 2022-11-22T19:46:57Z with arguments: #<GlobalID:0x000000010fcf7168 @uri=#<URI::GID gid://cars-api/ActiveStorage::Blob/6>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [59110cbd-0893-410c-9ffa-73a1ae034c67] Skipping image analysis because the ruby-vips gem isn't installed
+[ActiveJob] [ActiveStorage::AnalyzeJob] [59110cbd-0893-410c-9ffa-73a1ae034c67]   [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [59110cbd-0893-410c-9ffa-73a1ae034c67]   [1m[36mActiveStorage::Blob Update (0.7ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = $1 WHERE "active_storage_blobs"."id" = $2[0m  [["metadata", "{\"identified\":true,\"analyzed\":true}"], ["id", 6]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [59110cbd-0893-410c-9ffa-73a1ae034c67]   [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [59110cbd-0893-410c-9ffa-73a1ae034c67] Performed ActiveStorage::AnalyzeJob (Job ID: 59110cbd-0893-410c-9ffa-73a1ae034c67) from Async(default) in 41.36ms
+Started GET "/api/v1/ads" for ::1 at 2022-11-22 22:56:03 +0300
+Processing by Api::V1::AdsController#index as */*
+  [1m[36mAd Load (1.0ms)[0m  [1m[34mSELECT "ads".* FROM "ads"[0m
+  ↳ app/controllers/api/v1/ads_controller.rb:9:in `map'
+  [1m[36mActiveStorage::Attachment Load (3.8ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_type" = $1 AND "active_storage_attachments"."name" = $2 AND "active_storage_attachments"."record_id" IN ($3, $4, $5)[0m  [["record_type", "Ad"], ["name", "photos"], ["record_id", 1], ["record_id", 2], ["record_id", 3]]
+  ↳ app/controllers/api/v1/ads_controller.rb:9:in `map'
+  [1m[36mActiveStorage::Blob Load (2.8ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" IN ($1, $2, $3, $4, $5, $6)[0m  [["id", 1], ["id", 2], ["id", 3], ["id", 4], ["id", 5], ["id", 6]]
+  ↳ app/controllers/api/v1/ads_controller.rb:9:in `map'
+  [1m[36mActiveStorage::VariantRecord Load (2.6ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" IN ($1, $2, $3, $4, $5, $6)[0m  [["blob_id", 1], ["blob_id", 2], ["blob_id", 3], ["blob_id", 4], ["blob_id", 5], ["blob_id", 6]]
+  ↳ app/controllers/api/v1/ads_controller.rb:9:in `map'
+Completed 200 OK in 105ms (Views: 0.4ms | ActiveRecord: 26.3ms | Allocations: 11979)
+
+
+Started GET "/api/v1/ads" for ::1 at 2022-11-22 23:12:57 +0300
+Processing by Api::V1::AdsController#index as */*
+Completed 500 Internal Server Error in 14ms (Allocations: 6227)
+
+
+  
+NameError (uninitialized constant Api::V1::AdsController::AdsRepresenter
+
+        render json: AdsRepresenter.new(@ads).to_json
+                     ^^^^^^^^^^^^^^):
+  
+app/controllers/api/v1/ads_controller.rb:9:in `index'
+Started GET "/api/v1/ads" for ::1 at 2022-11-22 23:15:39 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::AdsController#index as */*
+  [1m[36mAd Load (1.7ms)[0m  [1m[34mSELECT "ads".* FROM "ads"[0m
+  ↳ app/representers/ads_representer.rb:10:in `map'
+  [1m[36mActiveStorage::Attachment Load (1.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_type" = $1 AND "active_storage_attachments"."name" = $2 AND "active_storage_attachments"."record_id" IN ($3, $4, $5)[0m  [["record_type", "Ad"], ["name", "photos"], ["record_id", 1], ["record_id", 2], ["record_id", 3]]
+  ↳ app/representers/ads_representer.rb:10:in `map'
+  [1m[36mActiveStorage::Blob Load (1.0ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" IN ($1, $2, $3, $4, $5, $6)[0m  [["id", 1], ["id", 2], ["id", 3], ["id", 4], ["id", 5], ["id", 6]]
+  ↳ app/representers/ads_representer.rb:10:in `map'
+  [1m[36mActiveStorage::VariantRecord Load (1.0ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" IN ($1, $2, $3, $4, $5, $6)[0m  [["blob_id", 1], ["blob_id", 2], ["blob_id", 3], ["blob_id", 4], ["blob_id", 5], ["blob_id", 6]]
+  ↳ app/representers/ads_representer.rb:10:in `map'
+  [1m[36mCar Load (0.9ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:17:in `block in to_json'
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:18:in `block in to_json'
+Completed 500 Internal Server Error in 137ms (ActiveRecord: 42.3ms | Allocations: 56117)
+
+
+  
+NoMethodError (undefined method `url_for' for #<AdsRepresenter:0x000000011375c5b0 @ads=#<ActiveRecord::Relation [#<Ad id: 1, description: "Green candy", price: 6000, stage: "draft", reason_for_rejection: nil, created_at: "2022-11-22 11:14:20.974801000 +0000", updated_at: "2022-11-22 11:14:20.990572000 +0000", car_id: 1, user_id: 1>, #<Ad id: 2, description: "Green candy", price: 6000, stage: "draft", reason_for_rejection: nil, created_at: "2022-11-22 11:17:08.307989000 +0000", updated_at: "2022-11-22 11:17:08.323850000 +0000", car_id: 3, user_id: 1>, #<Ad id: 3, description: "Green candy", price: 6000, stage: "draft", reason_for_rejection: nil, created_at: "2022-11-22 19:46:57.665630000 +0000", updated_at: "2022-11-22 19:46:57.684778000 +0000", car_id: 3, user_id: 1>]>>
+
+        photos: ad.as_json.merge({ photos: ad.photos.map{|photo| ({ photo: url_for(photo) })} })
+                                                                           ^^^^^^^):
+  
+app/representers/ads_representer.rb:19:in `block (2 levels) in to_json'
+app/representers/ads_representer.rb:19:in `block in to_json'
+app/representers/ads_representer.rb:10:in `map'
+app/representers/ads_representer.rb:10:in `to_json'
+app/controllers/api/v1/ads_controller.rb:9:in `index'
+Started GET "/api/v1/ads" for ::1 at 2022-11-22 23:16:23 +0300
+Processing by Api::V1::AdsController#index as */*
+  [1m[36mAd Load (0.7ms)[0m  [1m[34mSELECT "ads".* FROM "ads"[0m
+  ↳ app/representers/ads_representer.rb:10:in `map'
+  [1m[36mActiveStorage::Attachment Load (0.8ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_type" = $1 AND "active_storage_attachments"."name" = $2 AND "active_storage_attachments"."record_id" IN ($3, $4, $5)[0m  [["record_type", "Ad"], ["name", "photos"], ["record_id", 1], ["record_id", 2], ["record_id", 3]]
+  ↳ app/representers/ads_representer.rb:10:in `map'
+  [1m[36mActiveStorage::Blob Load (0.6ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" IN ($1, $2, $3, $4, $5, $6)[0m  [["id", 1], ["id", 2], ["id", 3], ["id", 4], ["id", 5], ["id", 6]]
+  ↳ app/representers/ads_representer.rb:10:in `map'
+  [1m[36mActiveStorage::VariantRecord Load (0.6ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" IN ($1, $2, $3, $4, $5, $6)[0m  [["blob_id", 1], ["blob_id", 2], ["blob_id", 3], ["blob_id", 4], ["blob_id", 5], ["blob_id", 6]]
+  ↳ app/representers/ads_representer.rb:10:in `map'
+  [1m[36mCar Load (0.3ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:17:in `block in to_json'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:18:in `block in to_json'
+Completed 500 Internal Server Error in 91ms (ActiveRecord: 38.7ms | Allocations: 33649)
+
+
+  
+NoMethodError (undefined method `url_for' for #<AdsRepresenter:0x000000011381d648 @ads=#<ActiveRecord::Relation [#<Ad id: 1, description: "Green candy", price: 6000, stage: "draft", reason_for_rejection: nil, created_at: "2022-11-22 11:14:20.974801000 +0000", updated_at: "2022-11-22 11:14:20.990572000 +0000", car_id: 1, user_id: 1>, #<Ad id: 2, description: "Green candy", price: 6000, stage: "draft", reason_for_rejection: nil, created_at: "2022-11-22 11:17:08.307989000 +0000", updated_at: "2022-11-22 11:17:08.323850000 +0000", car_id: 3, user_id: 1>, #<Ad id: 3, description: "Green candy", price: 6000, stage: "draft", reason_for_rejection: nil, created_at: "2022-11-22 19:46:57.665630000 +0000", updated_at: "2022-11-22 19:46:57.684778000 +0000", car_id: 3, user_id: 1>]>>
+
+        photos: ad.photos.map{|photo| ({ photo: url_for(photo) })} 
+                                                ^^^^^^^):
+  
+app/representers/ads_representer.rb:19:in `block (2 levels) in to_json'
+app/representers/ads_representer.rb:19:in `block in to_json'
+app/representers/ads_representer.rb:10:in `map'
+app/representers/ads_representer.rb:10:in `to_json'
+app/controllers/api/v1/ads_controller.rb:9:in `index'
+Started GET "/api/v1/ads" for ::1 at 2022-11-22 23:17:40 +0300
+Processing by Api::V1::AdsController#index as */*
+  [1m[36mAd Load (0.7ms)[0m  [1m[34mSELECT "ads".* FROM "ads"[0m
+  ↳ app/representers/ads_representer.rb:10:in `map'
+  [1m[36mActiveStorage::Attachment Load (0.6ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_type" = $1 AND "active_storage_attachments"."name" = $2 AND "active_storage_attachments"."record_id" IN ($3, $4, $5)[0m  [["record_type", "Ad"], ["name", "photos"], ["record_id", 1], ["record_id", 2], ["record_id", 3]]
+  ↳ app/representers/ads_representer.rb:10:in `map'
+  [1m[36mActiveStorage::Blob Load (0.5ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" IN ($1, $2, $3, $4, $5, $6)[0m  [["id", 1], ["id", 2], ["id", 3], ["id", 4], ["id", 5], ["id", 6]]
+  ↳ app/representers/ads_representer.rb:10:in `map'
+  [1m[36mActiveStorage::VariantRecord Load (0.5ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" IN ($1, $2, $3, $4, $5, $6)[0m  [["blob_id", 1], ["blob_id", 2], ["blob_id", 3], ["blob_id", 4], ["blob_id", 5], ["blob_id", 6]]
+  ↳ app/representers/ads_representer.rb:10:in `map'
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:17:in `block in to_json'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:18:in `block in to_json'
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:17:in `block in to_json'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:18:in `block in to_json'
+  [1m[36mCACHE Car Load (0.0ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:17:in `block in to_json'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:18:in `block in to_json'
+Completed 200 OK in 87ms (Views: 1.7ms | ActiveRecord: 30.0ms | Allocations: 35373)
+
+
+Started GET "/api/v1/ads" for ::1 at 2022-11-22 23:19:36 +0300
+Processing by Api::V1::AdsController#index as */*
+  [1m[36mAd Load (1.3ms)[0m  [1m[34mSELECT "ads".* FROM "ads"[0m
+  ↳ app/representers/ads_representer.rb:10:in `map'
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_type" = $1 AND "active_storage_attachments"."name" = $2 AND "active_storage_attachments"."record_id" IN ($3, $4, $5)[0m  [["record_type", "Ad"], ["name", "photos"], ["record_id", 1], ["record_id", 2], ["record_id", 3]]
+  ↳ app/representers/ads_representer.rb:10:in `map'
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" IN ($1, $2, $3, $4, $5, $6)[0m  [["id", 1], ["id", 2], ["id", 3], ["id", 4], ["id", 5], ["id", 6]]
+  ↳ app/representers/ads_representer.rb:10:in `map'
+  [1m[36mActiveStorage::VariantRecord Load (0.3ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" IN ($1, $2, $3, $4, $5, $6)[0m  [["blob_id", 1], ["blob_id", 2], ["blob_id", 3], ["blob_id", 4], ["blob_id", 5], ["blob_id", 6]]
+  ↳ app/representers/ads_representer.rb:10:in `map'
+  [1m[36mCar Load (0.3ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:17:in `block in to_json'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:18:in `block in to_json'
+Completed 500 Internal Server Error in 93ms (ActiveRecord: 37.1ms | Allocations: 33560)
+
+
+  
+NoMethodError (undefined method `url_for' for #<AdsRepresenter:0x00000001135a5730 @ads=#<ActiveRecord::Relation [#<Ad id: 1, description: "Green candy", price: 6000, stage: "draft", reason_for_rejection: nil, created_at: "2022-11-22 11:14:20.974801000 +0000", updated_at: "2022-11-22 11:14:20.990572000 +0000", car_id: 1, user_id: 1>, #<Ad id: 2, description: "Green candy", price: 6000, stage: "draft", reason_for_rejection: nil, created_at: "2022-11-22 11:17:08.307989000 +0000", updated_at: "2022-11-22 11:17:08.323850000 +0000", car_id: 3, user_id: 1>, #<Ad id: 3, description: "Green candy", price: 6000, stage: "draft", reason_for_rejection: nil, created_at: "2022-11-22 19:46:57.665630000 +0000", updated_at: "2022-11-22 19:46:57.684778000 +0000", car_id: 3, user_id: 1>]>>
+
+        photos: ad.photos.map{|photo| ({ photo: url_for(photo) })}
+                                                ^^^^^^^):
+  
+app/representers/ads_representer.rb:19:in `block (2 levels) in to_json'
+app/representers/ads_representer.rb:19:in `block in to_json'
+app/representers/ads_representer.rb:10:in `map'
+app/representers/ads_representer.rb:10:in `to_json'
+app/controllers/api/v1/ads_controller.rb:9:in `index'
+Started GET "/api/v1/ads" for ::1 at 2022-11-22 23:22:40 +0300
+Processing by Api::V1::AdsController#index as */*
+  [1m[36mAd Load (0.8ms)[0m  [1m[34mSELECT "ads".* FROM "ads"[0m
+  ↳ app/controllers/api/v1/ads_controller.rb:9:in `map'
+  [1m[36mActiveStorage::Attachment Load (0.7ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_type" = $1 AND "active_storage_attachments"."name" = $2 AND "active_storage_attachments"."record_id" IN ($3, $4, $5)[0m  [["record_type", "Ad"], ["name", "photos"], ["record_id", 1], ["record_id", 2], ["record_id", 3]]
+  ↳ app/controllers/api/v1/ads_controller.rb:9:in `map'
+  [1m[36mActiveStorage::Blob Load (0.7ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" IN ($1, $2, $3, $4, $5, $6)[0m  [["id", 1], ["id", 2], ["id", 3], ["id", 4], ["id", 5], ["id", 6]]
+  ↳ app/controllers/api/v1/ads_controller.rb:9:in `map'
+  [1m[36mActiveStorage::VariantRecord Load (0.6ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" IN ($1, $2, $3, $4, $5, $6)[0m  [["blob_id", 1], ["blob_id", 2], ["blob_id", 3], ["blob_id", 4], ["blob_id", 5], ["blob_id", 6]]
+  ↳ app/controllers/api/v1/ads_controller.rb:9:in `map'
+Completed 200 OK in 152ms (Views: 0.4ms | ActiveRecord: 36.4ms | Allocations: 23827)
+
+
+Started GET "/api/v1/ads" for ::1 at 2022-11-22 23:23:44 +0300
+Processing by Api::V1::AdsController#index as */*
+  [1m[36mAd Load (0.3ms)[0m  [1m[34mSELECT "ads".* FROM "ads" ORDER BY "ads"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/v1/ads_controller.rb:9:in `index'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_type" = $1 AND "active_storage_attachments"."name" = $2 AND "active_storage_attachments"."record_id" = $3[0m  [["record_type", "Ad"], ["name", "photos"], ["record_id", 1]]
+  ↳ app/controllers/api/v1/ads_controller.rb:9:in `index'
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" IN ($1, $2)[0m  [["id", 1], ["id", 2]]
+  ↳ app/controllers/api/v1/ads_controller.rb:9:in `index'
+  [1m[36mActiveStorage::VariantRecord Load (0.4ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" IN ($1, $2)[0m  [["blob_id", 1], ["blob_id", 2]]
+  ↳ app/controllers/api/v1/ads_controller.rb:9:in `index'
+  [1m[36mAd Load (0.6ms)[0m  [1m[34mSELECT "ads".* FROM "ads"[0m
+  ↳ app/controllers/api/v1/ads_controller.rb:10:in `map'
+  [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_type" = $1 AND "active_storage_attachments"."name" = $2 AND "active_storage_attachments"."record_id" IN ($3, $4, $5)[0m  [["record_type", "Ad"], ["name", "photos"], ["record_id", 1], ["record_id", 2], ["record_id", 3]]
+  ↳ app/controllers/api/v1/ads_controller.rb:10:in `map'
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" IN ($1, $2, $3, $4, $5, $6)[0m  [["id", 1], ["id", 2], ["id", 3], ["id", 4], ["id", 5], ["id", 6]]
+  ↳ app/controllers/api/v1/ads_controller.rb:10:in `map'
+  [1m[36mActiveStorage::VariantRecord Load (0.2ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" IN ($1, $2, $3, $4, $5, $6)[0m  [["blob_id", 1], ["blob_id", 2], ["blob_id", 3], ["blob_id", 4], ["blob_id", 5], ["blob_id", 6]]
+  ↳ app/controllers/api/v1/ads_controller.rb:10:in `map'
+Completed 200 OK in 66ms (Views: 0.4ms | ActiveRecord: 20.1ms | Allocations: 27121)
+
+
+Started GET "/api/v1/ads" for ::1 at 2022-11-22 23:27:57 +0300
+Processing by Api::V1::AdsController#index as */*
+  [1m[36mAd Load (0.4ms)[0m  [1m[34mSELECT "ads".* FROM "ads" ORDER BY "ads"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/v1/ads_controller.rb:9:in `index'
+  [1m[36mActiveStorage::Attachment Load (0.6ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_type" = $1 AND "active_storage_attachments"."name" = $2 AND "active_storage_attachments"."record_id" = $3[0m  [["record_type", "Ad"], ["name", "photos"], ["record_id", 1]]
+  ↳ app/controllers/api/v1/ads_controller.rb:9:in `index'
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" IN ($1, $2)[0m  [["id", 1], ["id", 2]]
+  ↳ app/controllers/api/v1/ads_controller.rb:9:in `index'
+  [1m[36mActiveStorage::VariantRecord Load (0.5ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" IN ($1, $2)[0m  [["blob_id", 1], ["blob_id", 2]]
+  ↳ app/controllers/api/v1/ads_controller.rb:9:in `index'
+  [1m[36mAd Load (0.2ms)[0m  [1m[34mSELECT "ads".* FROM "ads"[0m
+  ↳ app/controllers/api/v1/ads_controller.rb:10:in `map'
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_type" = $1 AND "active_storage_attachments"."name" = $2 AND "active_storage_attachments"."record_id" IN ($3, $4, $5)[0m  [["record_type", "Ad"], ["name", "photos"], ["record_id", 1], ["record_id", 2], ["record_id", 3]]
+  ↳ app/controllers/api/v1/ads_controller.rb:10:in `map'
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" IN ($1, $2, $3, $4, $5, $6)[0m  [["id", 1], ["id", 2], ["id", 3], ["id", 4], ["id", 5], ["id", 6]]
+  ↳ app/controllers/api/v1/ads_controller.rb:10:in `map'
+  [1m[36mActiveStorage::VariantRecord Load (0.2ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" IN ($1, $2, $3, $4, $5, $6)[0m  [["blob_id", 1], ["blob_id", 2], ["blob_id", 3], ["blob_id", 4], ["blob_id", 5], ["blob_id", 6]]
+  ↳ app/controllers/api/v1/ads_controller.rb:10:in `map'
+Completed 200 OK in 73ms (Views: 0.4ms | ActiveRecord: 26.4ms | Allocations: 27103)
+
+
+Started GET "/api/v1/ads" for ::1 at 2022-11-22 23:28:26 +0300
+Processing by Api::V1::AdsController#index as */*
+  [1m[36mAd Load (0.4ms)[0m  [1m[34mSELECT "ads".* FROM "ads" ORDER BY "ads"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/v1/ads_controller.rb:9:in `index'
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_type" = $1 AND "active_storage_attachments"."name" = $2 AND "active_storage_attachments"."record_id" = $3[0m  [["record_type", "Ad"], ["name", "photos"], ["record_id", 1]]
+  ↳ app/controllers/api/v1/ads_controller.rb:9:in `index'
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" IN ($1, $2)[0m  [["id", 1], ["id", 2]]
+  ↳ app/controllers/api/v1/ads_controller.rb:9:in `index'
+  [1m[36mActiveStorage::VariantRecord Load (0.3ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" IN ($1, $2)[0m  [["blob_id", 1], ["blob_id", 2]]
+  ↳ app/controllers/api/v1/ads_controller.rb:9:in `index'
+  [1m[36mAd Load (0.3ms)[0m  [1m[34mSELECT "ads".* FROM "ads"[0m
+  ↳ app/controllers/api/v1/ads_controller.rb:10:in `map'
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_type" = $1 AND "active_storage_attachments"."name" = $2 AND "active_storage_attachments"."record_id" IN ($3, $4, $5)[0m  [["record_type", "Ad"], ["name", "photos"], ["record_id", 1], ["record_id", 2], ["record_id", 3]]
+  ↳ app/controllers/api/v1/ads_controller.rb:10:in `map'
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" IN ($1, $2, $3, $4, $5, $6)[0m  [["id", 1], ["id", 2], ["id", 3], ["id", 4], ["id", 5], ["id", 6]]
+  ↳ app/controllers/api/v1/ads_controller.rb:10:in `map'
+  [1m[36mActiveStorage::VariantRecord Load (0.2ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" IN ($1, $2, $3, $4, $5, $6)[0m  [["blob_id", 1], ["blob_id", 2], ["blob_id", 3], ["blob_id", 4], ["blob_id", 5], ["blob_id", 6]]
+  ↳ app/controllers/api/v1/ads_controller.rb:10:in `map'
+Completed 200 OK in 77ms (Views: 0.4ms | ActiveRecord: 20.6ms | Allocations: 27308)
+
+
+Started GET "/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--018376843b48e291acf227008d94dbccffee28f8/images.jpeg" for ::1 at 2022-11-22 23:28:42 +0300
+Processing by ActiveStorage::Blobs::RedirectController#show as JPEG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--018376843b48e291acf227008d94dbccffee28f8", "filename"=>"images"}
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[36m  Disk Storage (9.7ms) [0m[34mGenerated URL for file at key: b0qh6i5740opuv9ucybivbw971ot (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhZakJ4YURacE5UYzBNRzl3ZFhZNWRXTjVZbWwyWW5jNU56RnZkQVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpUVdsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1sdFlXZGxjeTVxY0dWbklqc2dabWxzWlc1aGJXVXFQVlZVUmkwNEp5ZHBiV0ZuWlhNdWFuQmxad1k3QmxRNkVXTnZiblJsYm5SZmRIbHdaVWtpRDJsdFlXZGxMMnB3WldjR093WlVPaEZ6WlhKMmFXTmxYMjVoYldVNkNteHZZMkZzIiwiZXhwIjoiMjAyMi0xMS0yMlQyMDozMzo0Mi42MTBaIiwicHVyIjoiYmxvYl9rZXkifX0=--c61ff899703bb3679157c7db21a144845906d06e/images.jpeg)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhZakJ4YURacE5UYzBNRzl3ZFhZNWRXTjVZbWwyWW5jNU56RnZkQVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpUVdsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1sdFlXZGxjeTVxY0dWbklqc2dabWxzWlc1aGJXVXFQVlZVUmkwNEp5ZHBiV0ZuWlhNdWFuQmxad1k3QmxRNkVXTnZiblJsYm5SZmRIbHdaVWtpRDJsdFlXZGxMMnB3WldjR093WlVPaEZ6WlhKMmFXTmxYMjVoYldVNkNteHZZMkZzIiwiZXhwIjoiMjAyMi0xMS0yMlQyMDozMzo0Mi42MTBaIiwicHVyIjoiYmxvYl9rZXkifX0=--c61ff899703bb3679157c7db21a144845906d06e/images.jpeg
+Completed 302 Found in 17ms (ActiveRecord: 0.3ms | Allocations: 5867)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhZakJ4YURacE5UYzBNRzl3ZFhZNWRXTjVZbWwyWW5jNU56RnZkQVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpUVdsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1sdFlXZGxjeTVxY0dWbklqc2dabWxzWlc1aGJXVXFQVlZVUmkwNEp5ZHBiV0ZuWlhNdWFuQmxad1k3QmxRNkVXTnZiblJsYm5SZmRIbHdaVWtpRDJsdFlXZGxMMnB3WldjR093WlVPaEZ6WlhKMmFXTmxYMjVoYldVNkNteHZZMkZzIiwiZXhwIjoiMjAyMi0xMS0yMlQyMDozMzo0Mi42MTBaIiwicHVyIjoiYmxvYl9rZXkifX0=--c61ff899703bb3679157c7db21a144845906d06e/images.jpeg" for ::1 at 2022-11-22 23:28:42 +0300
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"images"}
+Completed 200 OK in 1ms (ActiveRecord: 0.0ms | Allocations: 295)
+
+
+Started GET "/favicon.ico" for ::1 at 2022-11-22 23:28:42 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/api/v1/ads" for ::1 at 2022-11-22 23:34:01 +0300
+Processing by Api::V1::AdsController#index as */*
+  [1m[36mAd Load (0.9ms)[0m  [1m[34mSELECT "ads".* FROM "ads"[0m
+  ↳ app/representers/ads_representer.rb:10:in `map'
+  [1m[36mActiveStorage::Attachment Load (0.6ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_type" = $1 AND "active_storage_attachments"."name" = $2 AND "active_storage_attachments"."record_id" IN ($3, $4, $5)[0m  [["record_type", "Ad"], ["name", "photos"], ["record_id", 1], ["record_id", 2], ["record_id", 3]]
+  ↳ app/representers/ads_representer.rb:10:in `map'
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" IN ($1, $2, $3, $4, $5, $6)[0m  [["id", 1], ["id", 2], ["id", 3], ["id", 4], ["id", 5], ["id", 6]]
+  ↳ app/representers/ads_representer.rb:10:in `map'
+  [1m[36mActiveStorage::VariantRecord Load (0.4ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" IN ($1, $2, $3, $4, $5, $6)[0m  [["blob_id", 1], ["blob_id", 2], ["blob_id", 3], ["blob_id", 4], ["blob_id", 5], ["blob_id", 6]]
+  ↳ app/representers/ads_representer.rb:10:in `map'
+Completed 500 Internal Server Error in 66ms (ActiveRecord: 21.9ms | Allocations: 23174)
+
+
+  
+NoMethodError (undefined method `url_for' for #<AdsRepresenter:0x0000000113eee530 @ads=#<ActiveRecord::Relation [#<Ad id: 1, description: "Green candy", price: 6000, stage: "draft", reason_for_rejection: nil, created_at: "2022-11-22 11:14:20.974801000 +0000", updated_at: "2022-11-22 11:14:20.990572000 +0000", car_id: 1, user_id: 1>, #<Ad id: 2, description: "Green candy", price: 6000, stage: "draft", reason_for_rejection: nil, created_at: "2022-11-22 11:17:08.307989000 +0000", updated_at: "2022-11-22 11:17:08.323850000 +0000", car_id: 3, user_id: 1>, #<Ad id: 3, description: "Green candy", price: 6000, stage: "draft", reason_for_rejection: nil, created_at: "2022-11-22 19:46:57.665630000 +0000", updated_at: "2022-11-22 19:46:57.684778000 +0000", car_id: 3, user_id: 1>]>>
+
+      p url_for(ad.photos.first)
+        ^^^^^^^):
+  
+app/representers/ads_representer.rb:11:in `block in to_json'
+app/representers/ads_representer.rb:10:in `map'
+app/representers/ads_representer.rb:10:in `to_json'
+app/controllers/api/v1/ads_controller.rb:9:in `index'
+Started GET "/api/v1/ads" for ::1 at 2022-11-22 23:42:02 +0300
+Processing by Api::V1::AdsController#index as */*
+  [1m[36mAd Load (0.7ms)[0m  [1m[34mSELECT "ads".* FROM "ads" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ app/representers/ads_representer.rb:7:in `p'
+  [1m[36mActiveStorage::Attachment Load (2.9ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_type" = $1 AND "active_storage_attachments"."name" = $2 AND "active_storage_attachments"."record_id" IN ($3, $4, $5)[0m  [["record_type", "Ad"], ["name", "photos"], ["record_id", 1], ["record_id", 2], ["record_id", 3]]
+  ↳ app/representers/ads_representer.rb:7:in `p'
+  [1m[36mActiveStorage::Blob Load (0.9ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" IN ($1, $2, $3, $4, $5, $6)[0m  [["id", 1], ["id", 2], ["id", 3], ["id", 4], ["id", 5], ["id", 6]]
+  ↳ app/representers/ads_representer.rb:7:in `p'
+  [1m[36mActiveStorage::VariantRecord Load (0.7ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" IN ($1, $2, $3, $4, $5, $6)[0m  [["blob_id", 1], ["blob_id", 2], ["blob_id", 3], ["blob_id", 4], ["blob_id", 5], ["blob_id", 6]]
+  ↳ app/representers/ads_representer.rb:7:in `p'
+  [1m[36mAd Load (0.3ms)[0m  [1m[34mSELECT "ads".* FROM "ads"[0m
+  ↳ app/representers/ads_representer.rb:11:in `map'
+  [1m[36mCACHE ActiveStorage::Attachment Load (0.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_type" = $1 AND "active_storage_attachments"."name" = $2 AND "active_storage_attachments"."record_id" IN ($3, $4, $5)[0m  [["record_type", "Ad"], ["name", "photos"], ["record_id", 1], ["record_id", 2], ["record_id", 3]]
+  ↳ app/representers/ads_representer.rb:11:in `map'
+  [1m[36mCACHE ActiveStorage::Blob Load (0.0ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" IN ($1, $2, $3, $4, $5, $6)[0m  [["id", 1], ["id", 2], ["id", 3], ["id", 4], ["id", 5], ["id", 6]]
+  ↳ app/representers/ads_representer.rb:11:in `map'
+  [1m[36mCACHE ActiveStorage::VariantRecord Load (0.0ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" IN ($1, $2, $3, $4, $5, $6)[0m  [["blob_id", 1], ["blob_id", 2], ["blob_id", 3], ["blob_id", 4], ["blob_id", 5], ["blob_id", 6]]
+  ↳ app/representers/ads_representer.rb:11:in `map'
+Completed 500 Internal Server Error in 108ms (ActiveRecord: 16.6ms | Allocations: 28809)
+
+
+  
+NoMethodError (undefined method `url_for' for #<AdsRepresenter:0x000000011465eb08 @ads=#<ActiveRecord::Relation [#<Ad id: 1, description: "Green candy", price: 6000, stage: "draft", reason_for_rejection: nil, created_at: "2022-11-22 11:14:20.974801000 +0000", updated_at: "2022-11-22 11:14:20.990572000 +0000", car_id: 1, user_id: 1>, #<Ad id: 2, description: "Green candy", price: 6000, stage: "draft", reason_for_rejection: nil, created_at: "2022-11-22 11:17:08.307989000 +0000", updated_at: "2022-11-22 11:17:08.323850000 +0000", car_id: 3, user_id: 1>, #<Ad id: 3, description: "Green candy", price: 6000, stage: "draft", reason_for_rejection: nil, created_at: "2022-11-22 19:46:57.665630000 +0000", updated_at: "2022-11-22 19:46:57.684778000 +0000", car_id: 3, user_id: 1>]>>
+
+      p url_for(ad.photos.first)
+        ^^^^^^^):
+  
+app/representers/ads_representer.rb:12:in `block in to_json'
+app/representers/ads_representer.rb:11:in `map'
+app/representers/ads_representer.rb:11:in `to_json'
+app/controllers/api/v1/ads_controller.rb:9:in `index'
+Started GET "/api/v1/ads" for ::1 at 2022-11-22 23:42:54 +0300
+Processing by Api::V1::AdsController#index as */*
+  [1m[36mAd Load (0.3ms)[0m  [1m[34mSELECT "ads".* FROM "ads" ORDER BY "ads"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:7:in `initialize'
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_type" = $1 AND "active_storage_attachments"."name" = $2 AND "active_storage_attachments"."record_id" = $3[0m  [["record_type", "Ad"], ["name", "photos"], ["record_id", 1]]
+  ↳ app/representers/ads_representer.rb:7:in `initialize'
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" IN ($1, $2)[0m  [["id", 1], ["id", 2]]
+  ↳ app/representers/ads_representer.rb:7:in `initialize'
+  [1m[36mActiveStorage::VariantRecord Load (0.4ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" IN ($1, $2)[0m  [["blob_id", 1], ["blob_id", 2]]
+  ↳ app/representers/ads_representer.rb:7:in `initialize'
+  [1m[36mAd Load (0.2ms)[0m  [1m[34mSELECT "ads".* FROM "ads" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_type" = $1 AND "active_storage_attachments"."name" = $2 AND "active_storage_attachments"."record_id" IN ($3, $4, $5)[0m  [["record_type", "Ad"], ["name", "photos"], ["record_id", 1], ["record_id", 2], ["record_id", 3]]
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" IN ($1, $2, $3, $4, $5, $6)[0m  [["id", 1], ["id", 2], ["id", 3], ["id", 4], ["id", 5], ["id", 6]]
+  [1m[36mActiveStorage::VariantRecord Load (0.2ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" IN ($1, $2, $3, $4, $5, $6)[0m  [["blob_id", 1], ["blob_id", 2], ["blob_id", 3], ["blob_id", 4], ["blob_id", 5], ["blob_id", 6]]
+Completed 500 Internal Server Error in 74ms (ActiveRecord: 22.6ms | Allocations: 27807)
+
+
+  [1m[36mCACHE Ad Load (0.0ms)[0m  [1m[34mSELECT "ads".* FROM "ads" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE ActiveStorage::Attachment Load (0.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_type" = $1 AND "active_storage_attachments"."name" = $2 AND "active_storage_attachments"."record_id" IN ($3, $4, $5)[0m  [["record_type", "Ad"], ["name", "photos"], ["record_id", 1], ["record_id", 2], ["record_id", 3]]
+  [1m[36mCACHE ActiveStorage::Blob Load (0.0ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" IN ($1, $2, $3, $4, $5, $6)[0m  [["id", 1], ["id", 2], ["id", 3], ["id", 4], ["id", 5], ["id", 6]]
+  [1m[36mCACHE ActiveStorage::VariantRecord Load (0.0ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" IN ($1, $2, $3, $4, $5, $6)[0m  [["blob_id", 1], ["blob_id", 2], ["blob_id", 3], ["blob_id", 4], ["blob_id", 5], ["blob_id", 6]]
+  
+NoMethodError (undefined method `url_for' for #<AdsRepresenter:0x000000011406f698 @ads=#<ActiveRecord::Relation [#<Ad id: 1, description: "Green candy", price: 6000, stage: "draft", reason_for_rejection: nil, created_at: "2022-11-22 11:14:20.974801000 +0000", updated_at: "2022-11-22 11:14:20.990572000 +0000", car_id: 1, user_id: 1>, #<Ad id: 2, description: "Green candy", price: 6000, stage: "draft", reason_for_rejection: nil, created_at: "2022-11-22 11:17:08.307989000 +0000", updated_at: "2022-11-22 11:17:08.323850000 +0000", car_id: 3, user_id: 1>, #<Ad id: 3, description: "Green candy", price: 6000, stage: "draft", reason_for_rejection: nil, created_at: "2022-11-22 19:46:57.665630000 +0000", updated_at: "2022-11-22 19:46:57.684778000 +0000", car_id: 3, user_id: 1>]>>
+
+    p url_for(@ads.first.photos.first)
+      ^^^^^^^):
+  
+app/representers/ads_representer.rb:7:in `initialize'
+app/controllers/api/v1/ads_controller.rb:9:in `new'
+app/controllers/api/v1/ads_controller.rb:9:in `index'
+  [1m[36mCACHE Ad Load (0.0ms)[0m  [1m[34mSELECT "ads".* FROM "ads" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE ActiveStorage::Attachment Load (0.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_type" = $1 AND "active_storage_attachments"."name" = $2 AND "active_storage_attachments"."record_id" IN ($3, $4, $5)[0m  [["record_type", "Ad"], ["name", "photos"], ["record_id", 1], ["record_id", 2], ["record_id", 3]]
+  [1m[36mCACHE ActiveStorage::Blob Load (0.0ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" IN ($1, $2, $3, $4, $5, $6)[0m  [["id", 1], ["id", 2], ["id", 3], ["id", 4], ["id", 5], ["id", 6]]
+  [1m[36mCACHE ActiveStorage::VariantRecord Load (0.0ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" IN ($1, $2, $3, $4, $5, $6)[0m  [["blob_id", 1], ["blob_id", 2], ["blob_id", 3], ["blob_id", 4], ["blob_id", 5], ["blob_id", 6]]
+Started GET "/api/v1/ads" for ::1 at 2022-11-22 23:50:52 +0300
+Processing by Api::V1::AdsController#index as */*
+  [1m[36mAd Load (0.7ms)[0m  [1m[34mSELECT "ads".* FROM "ads" ORDER BY "ads"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:6:in `initialize'
+  [1m[36mActiveStorage::Attachment Load (1.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_type" = $1 AND "active_storage_attachments"."name" = $2 AND "active_storage_attachments"."record_id" = $3[0m  [["record_type", "Ad"], ["name", "photos"], ["record_id", 1]]
+  ↳ app/representers/ads_representer.rb:6:in `initialize'
+  [1m[36mActiveStorage::Blob Load (1.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" IN ($1, $2)[0m  [["id", 1], ["id", 2]]
+  ↳ app/representers/ads_representer.rb:6:in `initialize'
+  [1m[36mActiveStorage::VariantRecord Load (1.0ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" IN ($1, $2)[0m  [["blob_id", 1], ["blob_id", 2]]
+  ↳ app/representers/ads_representer.rb:6:in `initialize'
+Completed 500 Internal Server Error in 79ms (ActiveRecord: 16.2ms | Allocations: 24704)
+
+
+  
+NoMethodError (undefined method `url_for' for #<AdsRepresenter:0x0000000113c172f8>
+
+    p url_for(ads.first.photos.first)
+      ^^^^^^^):
+  
+app/representers/ads_representer.rb:6:in `initialize'
+app/controllers/api/v1/ads_controller.rb:9:in `new'
+app/controllers/api/v1/ads_controller.rb:9:in `index'
+Started GET "/api/v1/ads" for ::1 at 2022-11-23 00:12:57 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::AdsController#index as */*
+  [1m[36mAd Load (1.6ms)[0m  [1m[34mSELECT "ads".* FROM "ads"[0m
+  ↳ app/controllers/api/v1/ads_controller.rb:10:in `index'
+  [1m[36mActiveStorage::Attachment Load (3.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_type" = $1 AND "active_storage_attachments"."name" = $2 AND "active_storage_attachments"."record_id" IN ($3, $4, $5)[0m  [["record_type", "Ad"], ["name", "photos"], ["record_id", 1], ["record_id", 2], ["record_id", 3]]
+  ↳ app/controllers/api/v1/ads_controller.rb:10:in `index'
+  [1m[36mActiveStorage::Blob Load (0.8ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" IN ($1, $2, $3, $4, $5, $6)[0m  [["id", 1], ["id", 2], ["id", 3], ["id", 4], ["id", 5], ["id", 6]]
+  ↳ app/controllers/api/v1/ads_controller.rb:10:in `index'
+  [1m[36mActiveStorage::VariantRecord Load (2.2ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" IN ($1, $2, $3, $4, $5, $6)[0m  [["blob_id", 1], ["blob_id", 2], ["blob_id", 3], ["blob_id", 4], ["blob_id", 5], ["blob_id", 6]]
+  ↳ app/controllers/api/v1/ads_controller.rb:10:in `index'
+Completed 200 OK in 96ms (Views: 47.4ms | ActiveRecord: 35.3ms | Allocations: 38161)
+
+
+Started GET "/api/v1/ads" for ::1 at 2022-11-23 00:14:01 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::AdsController#index as */*
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.0ms | Allocations: 10413)
+
+
+  
+NameError (uninitialized constant Api::V1::AdsRepresenter
+
+      Object.const_get(camel_cased_word)
+            ^^^^^^^^^^
+Did you mean?  AdRepresenter):
+  
+app/controllers/api/v1/ads_controller.rb:11:in `index'
+Started GET "/api/v1/ads" for ::1 at 2022-11-23 00:14:41 +0300
+Processing by Api::V1::AdsController#index as */*
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms | Allocations: 4412)
+
+
+  
+RuntimeError (In order to use respond_with, first you need to declare the formats your controller responds to in the class level.):
+  
+app/controllers/api/v1/ads_controller.rb:11:in `index'
+Started GET "/api/v1/ads" for ::1 at 2022-11-23 00:15:21 +0300
+  
+NoMethodError (undefined method `represents_to' for Api::V1::AdsController:Class
+
+      represents_to :json
+      ^^^^^^^^^^^^^
+Did you mean?  represents):
+  
+app/controllers/api/v1/ads_controller.rb:5:in `<class:AdsController>'
+app/controllers/api/v1/ads_controller.rb:3:in `<module:V1>'
+app/controllers/api/v1/ads_controller.rb:2:in `<module:Api>'
+app/controllers/api/v1/ads_controller.rb:1:in `<main>'
+Started GET "/api/v1/ads" for ::1 at 2022-11-23 00:15:54 +0300
+Processing by Api::V1::AdsController#index as */*
+Completed 200 OK in 9ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 4576)
+
+
+Started GET "/api/v1/ads" for ::1 at 2022-11-23 00:16:24 +0300
+Processing by Api::V1::AdsController#index as */*
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 157)
+
+
+Started GET "/api/v1/ads" for ::1 at 2022-11-23 00:26:54 +0300
+Processing by Api::V1::AdsController#index as */*
+Completed 200 OK in 9ms (Views: 0.1ms | Allocations: 4438)
+
+
+Started GET "/api/v1/ads" for ::1 at 2022-11-23 00:29:30 +0300
+Processing by Api::V1::AdsController#index as */*
+  [1m[36mAd Load (0.8ms)[0m  [1m[34mSELECT "ads".* FROM "ads" ORDER BY "ads"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/v1/ads_controller.rb:11:in `index'
+  [1m[36mActiveStorage::Attachment Load (0.8ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_type" = $1 AND "active_storage_attachments"."name" = $2 AND "active_storage_attachments"."record_id" = $3[0m  [["record_type", "Ad"], ["name", "photos"], ["record_id", 1]]
+  ↳ app/controllers/api/v1/ads_controller.rb:11:in `index'
+  [1m[36mActiveStorage::Blob Load (0.8ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" IN ($1, $2)[0m  [["id", 1], ["id", 2]]
+  ↳ app/controllers/api/v1/ads_controller.rb:11:in `index'
+  [1m[36mActiveStorage::VariantRecord Load (0.9ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" IN ($1, $2)[0m  [["blob_id", 1], ["blob_id", 2]]
+  ↳ app/controllers/api/v1/ads_controller.rb:11:in `index'
+Completed 200 OK in 129ms (Views: 0.2ms | ActiveRecord: 41.6ms | Allocations: 36976)
+
+
+Started POST "/api/v1/ads" for ::1 at 2022-11-23 00:37:25 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::AdsController#create as */*
+  Parameters: {"car"=>{"engine_capacity"=>"2.4", "creation_year"=>"1996", "model_id"=>"1"}, "ad"=>{"price"=>"6000", "description"=>"Green candy", "user_id"=>"1", "photos"=>[#<ActionDispatch::Http::UploadedFile:0x0000000110217f30 @tempfile=#<Tempfile:/var/folders/cw/0cz9t48d5ybd80yqjvmbbtjm0000gn/T/RackMultipart20221123-71419-9kmbtb.jpeg>, @original_filename="images.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"ad[photos][]\"; filename=\"images.jpeg\"\r\nContent-Type: image/jpeg\r\n">, #<ActionDispatch::Http::UploadedFile:0x0000000110217e90 @tempfile=#<Tempfile:/var/folders/cw/0cz9t48d5ybd80yqjvmbbtjm0000gn/T/RackMultipart20221123-71419-znfmnj.jpg>, @original_filename="9a6858as-960.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"ad[photos][]\"; filename=\"9a6858as-960.jpg\"\r\nContent-Type: image/jpeg\r\n">]}}
+  [1m[36mCar Load (3.7ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."creation_year" = $1 AND "cars"."engine_capacity" = $2 AND "cars"."model_id" = $3 LIMIT $4[0m  [["creation_year", 1996], ["engine_capacity", 2.4], ["model_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/ads_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/ads_controller.rb:18:in `create'
+  [1m[36mModel Load (1.6ms)[0m  [1m[34mSELECT "models".* FROM "models" WHERE "models"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/ads_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/ads_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/ads_controller.rb:22:in `create'
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/ads_controller.rb:22:in `create'
+  [1m[36mCar Load (0.4ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/ads_controller.rb:22:in `create'
+  [1m[36mAd Create (7.3ms)[0m  [1m[32mINSERT INTO "ads" ("description", "price", "stage", "reason_for_rejection", "created_at", "updated_at", "car_id", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["description", "Green candy"], ["price", 6000], ["stage", 0], ["reason_for_rejection", nil], ["created_at", "2022-11-22 21:37:25.805613"], ["updated_at", "2022-11-22 21:37:25.805613"], ["car_id", 3], ["user_id", 1]]
+  ↳ app/controllers/api/v1/ads_controller.rb:22:in `create'
+  [1m[36mActiveStorage::Blob Create (0.8ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["key", "xj04zcbh4cqtg0yoktlajn512x38"], ["filename", "images.jpeg"], ["content_type", "image/jpeg"], ["metadata", "{\"identified\":true}"], ["service_name", "local"], ["byte_size", 5592], ["checksum", "yrNtKMb7lL7sNtbuMSoddA=="], ["created_at", "2022-11-22 21:37:25.815353"]]
+  ↳ app/controllers/api/v1/ads_controller.rb:22:in `create'
+  [1m[36mActiveStorage::Attachment Create (1.5ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "photos"], ["record_type", "Ad"], ["record_id", 4], ["blob_id", 7], ["created_at", "2022-11-22 21:37:25.818095"]]
+  ↳ app/controllers/api/v1/ads_controller.rb:22:in `create'
+  [1m[36mActiveStorage::Blob Create (0.5ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["key", "l5a1v3rr1y34f7ishie3qpq3e6m3"], ["filename", "9a6858as-960.jpg"], ["content_type", "image/jpeg"], ["metadata", "{\"identified\":true}"], ["service_name", "local"], ["byte_size", 175355], ["checksum", "ffHPZoujDvdDjlYfV07E0g=="], ["created_at", "2022-11-22 21:37:25.821194"]]
+  ↳ app/controllers/api/v1/ads_controller.rb:22:in `create'
+  [1m[36mActiveStorage::Attachment Create (0.4ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "photos"], ["record_type", "Ad"], ["record_id", 4], ["blob_id", 8], ["created_at", "2022-11-22 21:37:25.823078"]]
+  ↳ app/controllers/api/v1/ads_controller.rb:22:in `create'
+  [1m[36mAd Update (5.2ms)[0m  [1m[33mUPDATE "ads" SET "updated_at" = $1 WHERE "ads"."id" = $2[0m  [["updated_at", "2022-11-22 21:37:25.824616"], ["id", 4]]
+  ↳ app/controllers/api/v1/ads_controller.rb:22:in `create'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/ads_controller.rb:22:in `create'
+[36m  Disk Storage (1.4ms) [0m[32mUploaded file to key: xj04zcbh4cqtg0yoktlajn512x38 (checksum: yrNtKMb7lL7sNtbuMSoddA==)[0m
+[36m  Disk Storage (1.0ms) [0m[32mUploaded file to key: l5a1v3rr1y34f7ishie3qpq3e6m3 (checksum: ffHPZoujDvdDjlYfV07E0g==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: efee24a6-1142-4ee2-ae42-075eaff3d500) to Async(default) with arguments: #<GlobalID:0x0000000110746790 @uri=#<URI::GID gid://cars-api/ActiveStorage::Blob/7>>
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 77f5633f-6635-40e0-816a-9e50bf3b761e) to Async(default) with arguments: #<GlobalID:0x0000000110759728 @uri=#<URI::GID gid://cars-api/ActiveStorage::Blob/8>>
+Completed 201 Created in 183ms (Views: 0.3ms | ActiveRecord: 64.2ms | Allocations: 69445)
+
+
+[ActiveJob] [ActiveStorage::AnalyzeJob] [efee24a6-1142-4ee2-ae42-075eaff3d500]   [1m[36mActiveStorage::Blob Load (0.6ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [efee24a6-1142-4ee2-ae42-075eaff3d500] Performing ActiveStorage::AnalyzeJob (Job ID: efee24a6-1142-4ee2-ae42-075eaff3d500) from Async(default) enqueued at 2022-11-22T21:37:25Z with arguments: #<GlobalID:0x000000010dd60bd8 @uri=#<URI::GID gid://cars-api/ActiveStorage::Blob/7>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [efee24a6-1142-4ee2-ae42-075eaff3d500] Skipping image analysis because the ruby-vips gem isn't installed
+[ActiveJob] [ActiveStorage::AnalyzeJob] [efee24a6-1142-4ee2-ae42-075eaff3d500]   [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [efee24a6-1142-4ee2-ae42-075eaff3d500]   [1m[36mActiveStorage::Blob Update (0.6ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = $1 WHERE "active_storage_blobs"."id" = $2[0m  [["metadata", "{\"identified\":true,\"analyzed\":true}"], ["id", 7]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [efee24a6-1142-4ee2-ae42-075eaff3d500]   [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [efee24a6-1142-4ee2-ae42-075eaff3d500] Performed ActiveStorage::AnalyzeJob (Job ID: efee24a6-1142-4ee2-ae42-075eaff3d500) from Async(default) in 39.68ms
+[ActiveJob] [ActiveStorage::AnalyzeJob] [77f5633f-6635-40e0-816a-9e50bf3b761e]   [1m[36mActiveStorage::Blob Load (0.7ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [77f5633f-6635-40e0-816a-9e50bf3b761e] Performing ActiveStorage::AnalyzeJob (Job ID: 77f5633f-6635-40e0-816a-9e50bf3b761e) from Async(default) enqueued at 2022-11-22T21:37:25Z with arguments: #<GlobalID:0x000000010fb35f00 @uri=#<URI::GID gid://cars-api/ActiveStorage::Blob/8>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [77f5633f-6635-40e0-816a-9e50bf3b761e] Skipping image analysis because the ruby-vips gem isn't installed
+[ActiveJob] [ActiveStorage::AnalyzeJob] [77f5633f-6635-40e0-816a-9e50bf3b761e]   [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [77f5633f-6635-40e0-816a-9e50bf3b761e]   [1m[36mActiveStorage::Blob Update (0.8ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = $1 WHERE "active_storage_blobs"."id" = $2[0m  [["metadata", "{\"identified\":true,\"analyzed\":true}"], ["id", 8]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [77f5633f-6635-40e0-816a-9e50bf3b761e]   [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [77f5633f-6635-40e0-816a-9e50bf3b761e] Performed ActiveStorage::AnalyzeJob (Job ID: 77f5633f-6635-40e0-816a-9e50bf3b761e) from Async(default) in 160.13ms
+Started GET "/api/v1/ads" for ::1 at 2022-11-23 00:37:35 +0300
+Processing by Api::V1::AdsController#index as */*
+  [1m[36mAd Load (1.0ms)[0m  [1m[34mSELECT "ads".* FROM "ads"[0m
+  ↳ app/representers/ads_representer.rb:10:in `map'
+  [1m[36mActiveStorage::Attachment Load (2.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_type" = $1 AND "active_storage_attachments"."name" = $2 AND "active_storage_attachments"."record_id" IN ($3, $4, $5, $6)[0m  [["record_type", "Ad"], ["name", "photos"], ["record_id", 1], ["record_id", 2], ["record_id", 3], ["record_id", 4]]
+  ↳ app/representers/ads_representer.rb:10:in `map'
+  [1m[36mActiveStorage::Blob Load (0.5ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8)[0m  [["id", 1], ["id", 2], ["id", 3], ["id", 4], ["id", 5], ["id", 6], ["id", 7], ["id", 8]]
+  ↳ app/representers/ads_representer.rb:10:in `map'
+  [1m[36mActiveStorage::VariantRecord Load (1.2ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" IN ($1, $2, $3, $4, $5, $6, $7, $8)[0m  [["blob_id", 1], ["blob_id", 2], ["blob_id", 3], ["blob_id", 4], ["blob_id", 5], ["blob_id", 6], ["blob_id", 7], ["blob_id", 8]]
+  ↳ app/representers/ads_representer.rb:10:in `map'
+  [1m[36mCar Load (0.6ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:17:in `block in to_json'
+  [1m[36mModel Load (0.6ms)[0m  [1m[34mSELECT "models".* FROM "models" WHERE "models"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:17:in `block in to_json'
+  [1m[36mBrand Load (1.3ms)[0m  [1m[34mSELECT "brands".* FROM "brands" WHERE "brands"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:18:in `block in to_json'
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:19:in `block in to_json'
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:17:in `block in to_json'
+  [1m[36mCACHE Model Load (0.0ms)[0m  [1m[34mSELECT "models".* FROM "models" WHERE "models"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:17:in `block in to_json'
+  [1m[36mCACHE Brand Load (0.0ms)[0m  [1m[34mSELECT "brands".* FROM "brands" WHERE "brands"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:18:in `block in to_json'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:19:in `block in to_json'
+  [1m[36mCACHE Car Load (0.0ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:17:in `block in to_json'
+  [1m[36mCACHE Model Load (0.0ms)[0m  [1m[34mSELECT "models".* FROM "models" WHERE "models"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:17:in `block in to_json'
+  [1m[36mCACHE Brand Load (0.0ms)[0m  [1m[34mSELECT "brands".* FROM "brands" WHERE "brands"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:18:in `block in to_json'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:19:in `block in to_json'
+  [1m[36mCACHE Car Load (0.0ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:17:in `block in to_json'
+  [1m[36mCACHE Model Load (0.0ms)[0m  [1m[34mSELECT "models".* FROM "models" WHERE "models"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:17:in `block in to_json'
+  [1m[36mCACHE Brand Load (0.0ms)[0m  [1m[34mSELECT "brands".* FROM "brands" WHERE "brands"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:18:in `block in to_json'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:19:in `block in to_json'
+Completed 200 OK in 61ms (Views: 0.3ms | ActiveRecord: 20.6ms | Allocations: 20308)
+
+
+Started GET "/api/v1/ads" for ::1 at 2022-11-23 00:42:40 +0300
+Processing by Api::V1::AdsController#index as */*
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.0ms | Allocations: 4988)
+
+
+  
+NoMethodError (undefined method `map' for nil:NilClass
+
+    ads.map do |ad|
+       ^^^^):
+  
+app/representers/ads_representer.rb:10:in `to_json'
+app/controllers/api/v1/ads_controller.rb:9:in `index'
+Started GET "/api/v1/ads" for ::1 at 2022-11-23 00:43:01 +0300
+Processing by Api::V1::AdsController#index as */*
+  [1m[36mAd Load (0.6ms)[0m  [1m[34mSELECT "ads".* FROM "ads"[0m
+  ↳ app/representers/ads_representer.rb:10:in `map'
+  [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_type" = $1 AND "active_storage_attachments"."name" = $2 AND "active_storage_attachments"."record_id" IN ($3, $4, $5, $6)[0m  [["record_type", "Ad"], ["name", "photos"], ["record_id", 1], ["record_id", 2], ["record_id", 3], ["record_id", 4]]
+  ↳ app/representers/ads_representer.rb:10:in `map'
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8)[0m  [["id", 1], ["id", 2], ["id", 3], ["id", 4], ["id", 5], ["id", 6], ["id", 7], ["id", 8]]
+  ↳ app/representers/ads_representer.rb:10:in `map'
+  [1m[36mActiveStorage::VariantRecord Load (0.3ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" IN ($1, $2, $3, $4, $5, $6, $7, $8)[0m  [["blob_id", 1], ["blob_id", 2], ["blob_id", 3], ["blob_id", 4], ["blob_id", 5], ["blob_id", 6], ["blob_id", 7], ["blob_id", 8]]
+  ↳ app/representers/ads_representer.rb:10:in `map'
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:17:in `block in to_json'
+  [1m[36mModel Load (0.4ms)[0m  [1m[34mSELECT "models".* FROM "models" WHERE "models"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:17:in `block in to_json'
+  [1m[36mBrand Load (0.3ms)[0m  [1m[34mSELECT "brands".* FROM "brands" WHERE "brands"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:18:in `block in to_json'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:19:in `block in to_json'
+Completed 500 Internal Server Error in 116ms (ActiveRecord: 42.9ms | Allocations: 40985)
+
+
+  
+NoMethodError (undefined method `url_for' for #<AdsRepresenter:0x00000001104650f8 @ads=#<ActiveRecord::Relation [#<Ad id: 1, description: "Green candy", price: 6000, stage: "draft", reason_for_rejection: nil, created_at: "2022-11-22 11:14:20.974801000 +0000", updated_at: "2022-11-22 11:14:20.990572000 +0000", car_id: 1, user_id: 1>, #<Ad id: 2, description: "Green candy", price: 6000, stage: "draft", reason_for_rejection: nil, created_at: "2022-11-22 11:17:08.307989000 +0000", updated_at: "2022-11-22 11:17:08.323850000 +0000", car_id: 3, user_id: 1>, #<Ad id: 3, description: "Green candy", price: 6000, stage: "draft", reason_for_rejection: nil, created_at: "2022-11-22 19:46:57.665630000 +0000", updated_at: "2022-11-22 19:46:57.684778000 +0000", car_id: 3, user_id: 1>, #<Ad id: 4, description: "Green candy", price: 6000, stage: "draft", reason_for_rejection: nil, created_at: "2022-11-22 21:37:25.805613000 +0000", updated_at: "2022-11-22 21:37:25.824616000 +0000", car_id: 3, user_id: 1>]>>
+
+        photos: ad.photos.map{|photo| url_for(photo)}
+                                      ^^^^^^^):
+  
+app/representers/ads_representer.rb:20:in `block (2 levels) in to_json'
+app/representers/ads_representer.rb:20:in `block in to_json'
+app/representers/ads_representer.rb:10:in `map'
+app/representers/ads_representer.rb:10:in `to_json'
+app/controllers/api/v1/ads_controller.rb:9:in `index'
+Started GET "/api/v1/ads" for ::1 at 2022-11-23 00:56:32 +0300
+Processing by Api::V1::AdsController#index as */*
+  [1m[36mAd Load (1.3ms)[0m  [1m[34mSELECT "ads".* FROM "ads"[0m
+  ↳ app/representers/ads_representer.rb:10:in `map'
+  [1m[36mActiveStorage::Attachment Load (2.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_type" = $1 AND "active_storage_attachments"."name" = $2 AND "active_storage_attachments"."record_id" IN ($3, $4, $5, $6)[0m  [["record_type", "Ad"], ["name", "photos"], ["record_id", 1], ["record_id", 2], ["record_id", 3], ["record_id", 4]]
+  ↳ app/representers/ads_representer.rb:10:in `map'
+  [1m[36mActiveStorage::Blob Load (0.9ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8)[0m  [["id", 1], ["id", 2], ["id", 3], ["id", 4], ["id", 5], ["id", 6], ["id", 7], ["id", 8]]
+  ↳ app/representers/ads_representer.rb:10:in `map'
+  [1m[36mActiveStorage::VariantRecord Load (0.7ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" IN ($1, $2, $3, $4, $5, $6, $7, $8)[0m  [["blob_id", 1], ["blob_id", 2], ["blob_id", 3], ["blob_id", 4], ["blob_id", 5], ["blob_id", 6], ["blob_id", 7], ["blob_id", 8]]
+  ↳ app/representers/ads_representer.rb:10:in `map'
+  [1m[36mCar Load (0.6ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:17:in `block in to_json'
+  [1m[36mModel Load (0.8ms)[0m  [1m[34mSELECT "models".* FROM "models" WHERE "models"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:17:in `block in to_json'
+  [1m[36mBrand Load (0.5ms)[0m  [1m[34mSELECT "brands".* FROM "brands" WHERE "brands"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:18:in `block in to_json'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:19:in `block in to_json'
+Completed 500 Internal Server Error in 109ms (ActiveRecord: 19.9ms | Allocations: 40541)
+
+
+  
+ArgumentError (Missing host to link to! Please provide the :host parameter, set default_url_options[:host], or set :only_path to true):
+  
+app/representers/ads_representer.rb:20:in `block (2 levels) in to_json'
+app/representers/ads_representer.rb:20:in `block in to_json'
+app/representers/ads_representer.rb:10:in `map'
+app/representers/ads_representer.rb:10:in `to_json'
+app/controllers/api/v1/ads_controller.rb:9:in `index'
+Started GET "/api/v1/ads" for ::1 at 2022-11-23 00:58:13 +0300
+Processing by Api::V1::AdsController#index as */*
+  [1m[36mAd Load (1.1ms)[0m  [1m[34mSELECT "ads".* FROM "ads"[0m
+  ↳ app/representers/ads_representer.rb:10:in `map'
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_type" = $1 AND "active_storage_attachments"."name" = $2 AND "active_storage_attachments"."record_id" IN ($3, $4, $5, $6)[0m  [["record_type", "Ad"], ["name", "photos"], ["record_id", 1], ["record_id", 2], ["record_id", 3], ["record_id", 4]]
+  ↳ app/representers/ads_representer.rb:10:in `map'
+  [1m[36mActiveStorage::Blob Load (0.6ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8)[0m  [["id", 1], ["id", 2], ["id", 3], ["id", 4], ["id", 5], ["id", 6], ["id", 7], ["id", 8]]
+  ↳ app/representers/ads_representer.rb:10:in `map'
+  [1m[36mActiveStorage::VariantRecord Load (0.4ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" IN ($1, $2, $3, $4, $5, $6, $7, $8)[0m  [["blob_id", 1], ["blob_id", 2], ["blob_id", 3], ["blob_id", 4], ["blob_id", 5], ["blob_id", 6], ["blob_id", 7], ["blob_id", 8]]
+  ↳ app/representers/ads_representer.rb:10:in `map'
+  [1m[36mCar Load (0.4ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:17:in `block in to_json'
+  [1m[36mModel Load (0.2ms)[0m  [1m[34mSELECT "models".* FROM "models" WHERE "models"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:17:in `block in to_json'
+  [1m[36mBrand Load (0.3ms)[0m  [1m[34mSELECT "brands".* FROM "brands" WHERE "brands"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:18:in `block in to_json'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:19:in `block in to_json'
+Completed 500 Internal Server Error in 128ms (ActiveRecord: 57.8ms | Allocations: 40160)
+
+
+  
+ArgumentError (Missing host to link to! Please provide the :host parameter, set default_url_options[:host], or set :only_path to true):
+  
+app/representers/ads_representer.rb:20:in `block (2 levels) in to_json'
+app/representers/ads_representer.rb:20:in `block in to_json'
+app/representers/ads_representer.rb:10:in `map'
+app/representers/ads_representer.rb:10:in `to_json'
+app/controllers/api/v1/ads_controller.rb:9:in `index'
+Started GET "/api/v1/ads" for ::1 at 2022-11-23 01:01:11 +0300
+Processing by Api::V1::AdsController#index as */*
+  [1m[36mAd Load (1.2ms)[0m  [1m[34mSELECT "ads".* FROM "ads"[0m
+  ↳ app/representers/ads_representer.rb:10:in `map'
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_type" = $1 AND "active_storage_attachments"."name" = $2 AND "active_storage_attachments"."record_id" IN ($3, $4, $5, $6)[0m  [["record_type", "Ad"], ["name", "photos"], ["record_id", 1], ["record_id", 2], ["record_id", 3], ["record_id", 4]]
+  ↳ app/representers/ads_representer.rb:10:in `map'
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8)[0m  [["id", 1], ["id", 2], ["id", 3], ["id", 4], ["id", 5], ["id", 6], ["id", 7], ["id", 8]]
+  ↳ app/representers/ads_representer.rb:10:in `map'
+  [1m[36mActiveStorage::VariantRecord Load (0.3ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" IN ($1, $2, $3, $4, $5, $6, $7, $8)[0m  [["blob_id", 1], ["blob_id", 2], ["blob_id", 3], ["blob_id", 4], ["blob_id", 5], ["blob_id", 6], ["blob_id", 7], ["blob_id", 8]]
+  ↳ app/representers/ads_representer.rb:10:in `map'
+  [1m[36mCar Load (0.3ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:17:in `block in to_json'
+  [1m[36mModel Load (0.4ms)[0m  [1m[34mSELECT "models".* FROM "models" WHERE "models"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:17:in `block in to_json'
+  [1m[36mBrand Load (0.3ms)[0m  [1m[34mSELECT "brands".* FROM "brands" WHERE "brands"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:18:in `block in to_json'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:19:in `block in to_json'
+Completed 500 Internal Server Error in 138ms (ActiveRecord: 49.1ms | Allocations: 39507)
+
+
+  
+ArgumentError (wrong number of arguments (given 2, expected 0..1)):
+  
+app/representers/ads_representer.rb:20:in `block (2 levels) in to_json'
+app/representers/ads_representer.rb:20:in `block in to_json'
+app/representers/ads_representer.rb:10:in `map'
+app/representers/ads_representer.rb:10:in `to_json'
+app/controllers/api/v1/ads_controller.rb:9:in `index'
+Started GET "/api/v1/ads" for ::1 at 2022-11-23 01:01:26 +0300
+Processing by Api::V1::AdsController#index as */*
+  [1m[36mAd Load (0.4ms)[0m  [1m[34mSELECT "ads".* FROM "ads"[0m
+  ↳ app/representers/ads_representer.rb:10:in `map'
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_type" = $1 AND "active_storage_attachments"."name" = $2 AND "active_storage_attachments"."record_id" IN ($3, $4, $5, $6)[0m  [["record_type", "Ad"], ["name", "photos"], ["record_id", 1], ["record_id", 2], ["record_id", 3], ["record_id", 4]]
+  ↳ app/representers/ads_representer.rb:10:in `map'
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8)[0m  [["id", 1], ["id", 2], ["id", 3], ["id", 4], ["id", 5], ["id", 6], ["id", 7], ["id", 8]]
+  ↳ app/representers/ads_representer.rb:10:in `map'
+  [1m[36mActiveStorage::VariantRecord Load (0.3ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" IN ($1, $2, $3, $4, $5, $6, $7, $8)[0m  [["blob_id", 1], ["blob_id", 2], ["blob_id", 3], ["blob_id", 4], ["blob_id", 5], ["blob_id", 6], ["blob_id", 7], ["blob_id", 8]]
+  ↳ app/representers/ads_representer.rb:10:in `map'
+  [1m[36mCar Load (0.3ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:17:in `block in to_json'
+  [1m[36mModel Load (0.2ms)[0m  [1m[34mSELECT "models".* FROM "models" WHERE "models"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:17:in `block in to_json'
+  [1m[36mBrand Load (0.2ms)[0m  [1m[34mSELECT "brands".* FROM "brands" WHERE "brands"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:18:in `block in to_json'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:19:in `block in to_json'
+Completed 500 Internal Server Error in 106ms (ActiveRecord: 37.2ms | Allocations: 40023)
+
+
+  
+ArgumentError (Missing host to link to! Please provide the :host parameter, set default_url_options[:host], or set :only_path to true):
+  
+app/representers/ads_representer.rb:20:in `block (2 levels) in to_json'
+app/representers/ads_representer.rb:20:in `block in to_json'
+app/representers/ads_representer.rb:10:in `map'
+app/representers/ads_representer.rb:10:in `to_json'
+app/controllers/api/v1/ads_controller.rb:9:in `index'
+Started GET "/api/v1/ads" for ::1 at 2022-11-23 01:05:37 +0300
+Processing by Api::V1::AdsController#index as */*
+  [1m[36mAd Load (1.2ms)[0m  [1m[34mSELECT "ads".* FROM "ads"[0m
+  ↳ app/representers/ads_representer.rb:10:in `map'
+  [1m[36mActiveStorage::Attachment Load (0.9ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_type" = $1 AND "active_storage_attachments"."name" = $2 AND "active_storage_attachments"."record_id" IN ($3, $4, $5, $6)[0m  [["record_type", "Ad"], ["name", "photos"], ["record_id", 1], ["record_id", 2], ["record_id", 3], ["record_id", 4]]
+  ↳ app/representers/ads_representer.rb:10:in `map'
+  [1m[36mActiveStorage::Blob Load (0.8ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8)[0m  [["id", 1], ["id", 2], ["id", 3], ["id", 4], ["id", 5], ["id", 6], ["id", 7], ["id", 8]]
+  ↳ app/representers/ads_representer.rb:10:in `map'
+  [1m[36mActiveStorage::VariantRecord Load (0.8ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" IN ($1, $2, $3, $4, $5, $6, $7, $8)[0m  [["blob_id", 1], ["blob_id", 2], ["blob_id", 3], ["blob_id", 4], ["blob_id", 5], ["blob_id", 6], ["blob_id", 7], ["blob_id", 8]]
+  ↳ app/representers/ads_representer.rb:10:in `map'
+  [1m[36mCar Load (0.3ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:17:in `block in to_json'
+  [1m[36mModel Load (0.4ms)[0m  [1m[34mSELECT "models".* FROM "models" WHERE "models"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:17:in `block in to_json'
+  [1m[36mBrand Load (0.2ms)[0m  [1m[34mSELECT "brands".* FROM "brands" WHERE "brands"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:18:in `block in to_json'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:19:in `block in to_json'
+  [1m[36mCar Load (0.4ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:17:in `block in to_json'
+  [1m[36mCACHE Model Load (0.0ms)[0m  [1m[34mSELECT "models".* FROM "models" WHERE "models"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:17:in `block in to_json'
+  [1m[36mCACHE Brand Load (0.0ms)[0m  [1m[34mSELECT "brands".* FROM "brands" WHERE "brands"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:18:in `block in to_json'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:19:in `block in to_json'
+  [1m[36mCACHE Car Load (0.0ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:17:in `block in to_json'
+  [1m[36mCACHE Model Load (0.0ms)[0m  [1m[34mSELECT "models".* FROM "models" WHERE "models"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:17:in `block in to_json'
+  [1m[36mCACHE Brand Load (0.0ms)[0m  [1m[34mSELECT "brands".* FROM "brands" WHERE "brands"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:18:in `block in to_json'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:19:in `block in to_json'
+  [1m[36mCACHE Car Load (0.0ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:17:in `block in to_json'
+  [1m[36mCACHE Model Load (0.0ms)[0m  [1m[34mSELECT "models".* FROM "models" WHERE "models"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:17:in `block in to_json'
+  [1m[36mCACHE Brand Load (0.0ms)[0m  [1m[34mSELECT "brands".* FROM "brands" WHERE "brands"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:18:in `block in to_json'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:19:in `block in to_json'
+Completed 200 OK in 156ms (Views: 0.8ms | ActiveRecord: 78.9ms | Allocations: 48417)
+
+
+Started GET "/api/v1/ads" for ::1 at 2022-11-23 01:10:14 +0300
+Processing by Api::V1::AdsController#index as */*
+  [1m[36mAd Load (1.1ms)[0m  [1m[34mSELECT "ads".* FROM "ads"[0m
+  ↳ app/representers/ads_representer.rb:10:in `map'
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_type" = $1 AND "active_storage_attachments"."name" = $2 AND "active_storage_attachments"."record_id" IN ($3, $4, $5, $6)[0m  [["record_type", "Ad"], ["name", "photos"], ["record_id", 1], ["record_id", 2], ["record_id", 3], ["record_id", 4]]
+  ↳ app/representers/ads_representer.rb:10:in `map'
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8)[0m  [["id", 1], ["id", 2], ["id", 3], ["id", 4], ["id", 5], ["id", 6], ["id", 7], ["id", 8]]
+  ↳ app/representers/ads_representer.rb:10:in `map'
+  [1m[36mActiveStorage::VariantRecord Load (0.4ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" IN ($1, $2, $3, $4, $5, $6, $7, $8)[0m  [["blob_id", 1], ["blob_id", 2], ["blob_id", 3], ["blob_id", 4], ["blob_id", 5], ["blob_id", 6], ["blob_id", 7], ["blob_id", 8]]
+  ↳ app/representers/ads_representer.rb:10:in `map'
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:17:in `block in to_json'
+  [1m[36mModel Load (0.3ms)[0m  [1m[34mSELECT "models".* FROM "models" WHERE "models"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:17:in `block in to_json'
+  [1m[36mBrand Load (0.4ms)[0m  [1m[34mSELECT "brands".* FROM "brands" WHERE "brands"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:18:in `block in to_json'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:19:in `block in to_json'
+  [1m[36mCar Load (0.3ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:17:in `block in to_json'
+  [1m[36mCACHE Model Load (0.0ms)[0m  [1m[34mSELECT "models".* FROM "models" WHERE "models"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:17:in `block in to_json'
+  [1m[36mCACHE Brand Load (0.0ms)[0m  [1m[34mSELECT "brands".* FROM "brands" WHERE "brands"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:18:in `block in to_json'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:19:in `block in to_json'
+  [1m[36mCACHE Car Load (0.0ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:17:in `block in to_json'
+  [1m[36mCACHE Model Load (0.0ms)[0m  [1m[34mSELECT "models".* FROM "models" WHERE "models"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:17:in `block in to_json'
+  [1m[36mCACHE Brand Load (0.0ms)[0m  [1m[34mSELECT "brands".* FROM "brands" WHERE "brands"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:18:in `block in to_json'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:19:in `block in to_json'
+  [1m[36mCACHE Car Load (0.0ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:17:in `block in to_json'
+  [1m[36mCACHE Model Load (0.0ms)[0m  [1m[34mSELECT "models".* FROM "models" WHERE "models"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:17:in `block in to_json'
+  [1m[36mCACHE Brand Load (0.0ms)[0m  [1m[34mSELECT "brands".* FROM "brands" WHERE "brands"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:18:in `block in to_json'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:19:in `block in to_json'
+Completed 200 OK in 156ms (Views: 0.9ms | ActiveRecord: 50.3ms | Allocations: 48392)
+
+
+Started GET "/api/v1/ads" for ::1 at 2022-11-23 01:11:08 +0300
+Processing by Api::V1::AdsController#index as */*
+  [1m[36mAd Load (1.2ms)[0m  [1m[34mSELECT "ads".* FROM "ads"[0m
+  ↳ app/representers/ads_representer.rb:10:in `map'
+  [1m[36mActiveStorage::Attachment Load (54.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_type" = $1 AND "active_storage_attachments"."name" = $2 AND "active_storage_attachments"."record_id" IN ($3, $4, $5, $6)[0m  [["record_type", "Ad"], ["name", "photos"], ["record_id", 1], ["record_id", 2], ["record_id", 3], ["record_id", 4]]
+  ↳ app/representers/ads_representer.rb:10:in `map'
+  [1m[36mActiveStorage::Blob Load (0.6ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8)[0m  [["id", 1], ["id", 2], ["id", 3], ["id", 4], ["id", 5], ["id", 6], ["id", 7], ["id", 8]]
+  ↳ app/representers/ads_representer.rb:10:in `map'
+  [1m[36mActiveStorage::VariantRecord Load (0.7ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" IN ($1, $2, $3, $4, $5, $6, $7, $8)[0m  [["blob_id", 1], ["blob_id", 2], ["blob_id", 3], ["blob_id", 4], ["blob_id", 5], ["blob_id", 6], ["blob_id", 7], ["blob_id", 8]]
+  ↳ app/representers/ads_representer.rb:10:in `map'
+  [1m[36mCar Load (0.3ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:17:in `block in to_json'
+  [1m[36mModel Load (0.3ms)[0m  [1m[34mSELECT "models".* FROM "models" WHERE "models"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:17:in `block in to_json'
+  [1m[36mBrand Load (0.5ms)[0m  [1m[34mSELECT "brands".* FROM "brands" WHERE "brands"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:18:in `block in to_json'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:21:in `block in to_json'
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:17:in `block in to_json'
+  [1m[36mCACHE Model Load (0.0ms)[0m  [1m[34mSELECT "models".* FROM "models" WHERE "models"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:17:in `block in to_json'
+  [1m[36mCACHE Brand Load (0.0ms)[0m  [1m[34mSELECT "brands".* FROM "brands" WHERE "brands"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:18:in `block in to_json'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:21:in `block in to_json'
+  [1m[36mCACHE Car Load (0.0ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:17:in `block in to_json'
+  [1m[36mCACHE Model Load (0.0ms)[0m  [1m[34mSELECT "models".* FROM "models" WHERE "models"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:17:in `block in to_json'
+  [1m[36mCACHE Brand Load (0.0ms)[0m  [1m[34mSELECT "brands".* FROM "brands" WHERE "brands"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:18:in `block in to_json'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:21:in `block in to_json'
+  [1m[36mCACHE Car Load (0.0ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:17:in `block in to_json'
+  [1m[36mCACHE Model Load (0.0ms)[0m  [1m[34mSELECT "models".* FROM "models" WHERE "models"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:17:in `block in to_json'
+  [1m[36mCACHE Brand Load (0.0ms)[0m  [1m[34mSELECT "brands".* FROM "brands" WHERE "brands"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:18:in `block in to_json'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/representers/ads_representer.rb:21:in `block in to_json'
+Completed 200 OK in 203ms (Views: 0.6ms | ActiveRecord: 106.2ms | Allocations: 48565)
+
+
