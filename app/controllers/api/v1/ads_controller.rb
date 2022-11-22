@@ -2,7 +2,7 @@ module Api
   module V1
     class AdsController < ApplicationController
       before_action :set_ad, only: %i[ show update destroy]
-      #before_action :is_admin?, only: %i[ create update destroy]
+      #before_action :moderator?, only: %i[ create update destroy]
 
       def index
         @ads = Ad.all.with_attached_photos
@@ -14,7 +14,8 @@ module Api
       end
 
       def create
-        @car = Car.create(car_params)
+        @car = Car.find_or_create_by(creation_year: car_params[:creation_year], engine_capacity: car_params[:engine_capacity], model_id: car_params[:model_id])
+        p @car.inspect
         if !@car.save
           render json: @car.errors, status: :unprocessable_entity
         end
