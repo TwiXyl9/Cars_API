@@ -1,6 +1,6 @@
 module AuthenticationHelper
-  def login
-    post '/authentication/sign_in', params:  { email: @current_user.email, password: @current_user.password }.to_json, headers: { 'CONTENT_TYPE' => 'application/json', 'ACCEPT' => 'application/json' }
+  def login(email, password)
+    post '/authentication/sign_in', params:  { email: email, password: password }.to_json, headers: { 'CONTENT_TYPE' => 'application/json', 'ACCEPT' => 'application/json' }
   end
 
   def get_auth_params_from_login_response_headers(response)

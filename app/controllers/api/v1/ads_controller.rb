@@ -2,7 +2,7 @@ module Api
   module V1
     class AdsController < ApplicationController
       before_action :set_ad, only: %i[ show update destroy]
-      #before_action :moderator?, only: %i[ create update destroy]
+      before_action :authenticate_user!, only: %i[ create update destroy]
 
       def index
         @ads = Ad.all.with_attached_photos
@@ -10,18 +10,17 @@ module Api
       end
 
       def show
-        render json: @ad
+        render json: AdRepresenter.new(@ad).to_json
       end
 
       def create
         @car = Car.find_or_create_by(creation_year: car_params[:creation_year], engine_capacity: car_params[:engine_capacity], model_id: car_params[:model_id])
-        if !@car.save
-          render json: @car.errors, status: :unprocessable_entity
+        if !@car.id
+          render json: @car.errors, status: :unprocessable_entity if !@car.save
         end
-
         @ad = Ad.create(ad_params)
         if @ad.save
-          render json: @ad.as_json.merge({ photos: @ad.photos.map{|photo| ({ photo: url_for(photo) })} }) , status: :created
+          render json: AdRepresenter.new(@ad).to_json , status: :created
         else
           render json: @ad.errors, status: :unprocessable_entity
         end
@@ -31,13 +30,14 @@ module Api
         @car = @ad.car
         if !@car.update(car_params)
           render json: @car.errors, status: :unprocessable_entity
+        else
+          if @ad.update(ad_params)
+            render json: AdRepresenter.new(@ad).to_json , status: :created
+          else
+            render json: @ad.errors, status: :unprocessable_entity
+          end
         end
 
-        if @ad.update(ad_params)
-          render json: @ad.as_json.merge({ photos: @ad.photos.map{|photo| ({ photo: url_for(photo) })} }) , status: :created
-        else
-          render json: @ad.errors, status: :unprocessable_entity
-        end
       end
 
       def destroy

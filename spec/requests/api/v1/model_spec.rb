@@ -51,7 +51,7 @@ RSpec.describe Api::V1::ModelsController, type: :request do
     describe "with moderator role" do
       before(:each) do
         @current_user = FactoryBot.create(:user, name:'Ivan', surname: 'Ivanov', phone: '+375291234567', email: 'test@mail.ru', password: 'qwerty123', role: 2)
-        login
+        login(@current_user.email, @current_user.password)
         @auth_params = get_auth_params_from_login_response_headers(response)
       end
       describe "GET /models" do
@@ -131,7 +131,7 @@ RSpec.describe Api::V1::ModelsController, type: :request do
     describe "without role" do
       before(:each) do
         @current_user = FactoryBot.create(:user, name:'Ivan', surname: 'Ivanov', phone: '+375291234567', email: 'test@mail.ru', password: 'qwerty123')
-        login
+        login(@current_user.email, @current_user.password)
         @auth_params = get_auth_params_from_login_response_headers(response)
       end
       describe "POST /models" do
