@@ -105,6 +105,42 @@ RSpec.describe Api::V1::BrandsController, type: :request do
           expect(response).to have_http_status(:no_content)
         end
       end
+
+      describe "with wrong data" do
+        describe "name" do
+          describe "POST /brands" do
+            it "get error" do
+              post '/api/v1/brands', params: {brand: {name: ''}}, headers: @auth_params
+
+              expect(response).to have_http_status(:unprocessable_entity)
+              expect(response_body).to eq({
+                                            "name" => ["can't be blank"]
+                                          })
+            end
+          end
+          describe "PATCH /brands/:id" do
+            let!(:brand){FactoryBot.create(:brand, name:'Audi') }
+            it "get error" do
+              patch "/api/v1/brands/#{brand.id}", params: {brand: {name: ''}}, headers: @auth_params
+
+              expect(response).to have_http_status(:unprocessable_entity)
+              expect(response_body).to eq({
+                                            "name" => ["can't be blank"]
+                                          })
+            end
+          end
+        end
+        describe "id" do
+          describe "GET /brands/:id" do
+            let!(:brand){FactoryBot.create(:brand, name:'Audi') }
+            it "get error" do
+              get "/api/v1/brands/#{brand.id+1}"
+              expect(response).to have_http_status(:not_found)
+              expect(response_body["errors"]).to eq("Couldn't find Brand with 'id'=#{brand.id+1}")
+            end
+          end
+        end
+      end
     end
     describe "without role" do
       before(:each) do
