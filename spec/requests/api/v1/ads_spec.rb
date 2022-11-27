@@ -86,7 +86,6 @@ RSpec.describe "Api::V1::Ads", type: :request do
           expect(response_body["description"]).to eq("Patch success!")
         end
       end
-
       describe "DELETE /ads/:id" do
         let!(:ad){FactoryBot.create(:ad, description: 'Test desc N1!', price: 4000, car: car, user: user) }
         it "delete the ad" do
@@ -99,8 +98,8 @@ RSpec.describe "Api::V1::Ads", type: :request do
       end
     end
     describe "with incorrect params" do
-      describe "new сar without engine_capacity" do
-        describe "POST /ads" do
+      describe "POST /ads" do
+        describe "new сar without engine_capacity" do
           it "get error" do
 
             post '/api/v1/ads', params: {car: {engine_capacity: '', creation_year: 1999, model_id: model.id}, ad: {price: 6000, description: "Test desc!", user_id: user.id}}, headers: @auth_params
@@ -111,8 +110,21 @@ RSpec.describe "Api::V1::Ads", type: :request do
                                         })
           end
         end
-        describe "PATCH /ads/:id" do
-          let!(:ad){FactoryBot.create(:ad, description: 'Test desc N1!', price: 4000, car: car, user: user) }
+        describe "new ad without price" do
+          it "get error" do
+
+            post '/api/v1/ads', params: {car: {engine_capacity: 2.0, creation_year: 1999, model_id: model.id}, ad: {price: '', description: "Test desc!", user_id: user.id}}, headers: @auth_params
+
+            expect(response).to have_http_status(:unprocessable_entity)
+            expect(response_body).to eq({
+                                          "price" => ["can't be blank"]
+                                        })
+          end
+        end
+      end
+      describe "PATCH /ads/:id" do
+        let!(:ad){FactoryBot.create(:ad, description: 'Test desc N1!', price: 4000, car: car, user: user) }
+        describe "new сar without engine_capacity" do
           it "get error" do
 
             patch "/api/v1/ads/#{ad.id}", params: {car: {engine_capacity: '', creation_year: 1999, model_id: model.id}, ad: {price: 6000, description: "Test desc!", user_id: user.id}}, headers: @auth_params
@@ -123,32 +135,15 @@ RSpec.describe "Api::V1::Ads", type: :request do
                                         })
           end
         end
+        describe "new ad without price" do
+          it "get error" do
 
-      end
-      describe "new ad without price" do
-        let!(:ad){FactoryBot.create(:ad, description: 'Test desc N1!', price: 4000, car: car, user: user) }
-        describe "for new ad" do
-          describe "POST /ads" do
-            it "get error" do
+            patch "/api/v1/ads/#{ad.id}", params: {car: {engine_capacity: 2.0, creation_year: 1999, model_id: model.id}, ad: {price: '', description: "Test desc!", user_id: user.id}}, headers: @auth_params
 
-              post '/api/v1/ads', params: {car: {engine_capacity: 2.0, creation_year: 1999, model_id: model.id}, ad: {price: '', description: "Test desc!", user_id: user.id}}, headers: @auth_params
-
-              expect(response).to have_http_status(:unprocessable_entity)
-              expect(response_body).to eq({
-                                            "price" => ["can't be blank"]
-                                          })
-            end
-          end
-          describe "PATCH /ads/:id" do
-            it "get error" do
-
-              patch "/api/v1/ads/#{ad.id}", params: {car: {engine_capacity: 2.0, creation_year: 1999, model_id: model.id}, ad: {price: '', description: "Test desc!", user_id: user.id}}, headers: @auth_params
-
-              expect(response).to have_http_status(:unprocessable_entity)
-              expect(response_body).to eq({
-                                            "price" => ["can't be blank"]
-                                          })
-            end
+            expect(response).to have_http_status(:unprocessable_entity)
+            expect(response_body).to eq({
+                                          "price" => ["can't be blank"]
+                                        })
           end
         end
       end
