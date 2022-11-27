@@ -5,7 +5,7 @@ module Api
       before_action :authenticate_user!, only: %i[ create update destroy]
 
       def index
-        @ads = Ad.all.with_attached_photos
+        @ads = (Ad.page params[:page]).with_attached_photos
         render json: AdsRepresenter.new(@ads).to_json
       end
 

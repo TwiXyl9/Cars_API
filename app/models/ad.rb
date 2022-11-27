@@ -3,6 +3,8 @@ class Ad < ApplicationRecord
   belongs_to :car
   has_many_attached :photos
 
+  paginates_per 10
+
   enum stage: [:draft, :pending, :rejected, :published, :archival]
 
   after_initialize :set_default_stage, :if => :new_record?

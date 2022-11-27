@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="48bf73db-f4d1-40cc-b79d-a0be783d024d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/spec/requests/api/v1/ads_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/requests/api/v1/ads_spec.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/api/v1/ads_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/api/v1/ads_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/ad.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/ad.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/development.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/development.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/cache/bootsnap/load-path-cache" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/cache/bootsnap/load-path-cache" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,7 +184,7 @@
       <workItem from="1669146067971" duration="10053000" />
       <workItem from="1669292449153" duration="17093000" />
       <workItem from="1669372818648" duration="3023000" />
-      <workItem from="1669574308923" duration="567000" />
+      <workItem from="1669574308923" duration="1782000" />
     </task>
     <servers />
   </component>
