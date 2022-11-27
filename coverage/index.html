@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2022-11-25T02:14:56+03:00">2022-11-25T02:14:56+03:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2022-11-25T18:27:42+03:00">2022-11-25T18:27:42+03:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -23,7 +23,7 @@
     <span class="group_name">All Files</span>
     (<span class="covered_percent">
       <span class="green">
-  99.33%
+  100.0%
 </span>
 
      </span>
@@ -43,11 +43,11 @@
   </div>
 
   <div class="t-line-summary">
-    <b>594</b> relevant lines,
-    <span class="green"><b>590</b> lines covered</span> and
-    <span class="red"><b>4</b> lines missed. </span>
+    <b>600</b> relevant lines,
+    <span class="green"><b>600</b> lines covered</span> and
+    <span class="red"><b>0</b> lines missed. </span>
     (<span class="green">
-  99.33%
+  100.0%
 </span>
 )
   </div>
@@ -72,11 +72,11 @@
         
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#17eca9dd17eb357c52990f70083c992814ce6cdc" class="src_link" title="app/controllers/api/v1/ads_controller.rb">app/controllers/api/v1/ads_controller.rb</a></td>
-            <td class="yellow strong cell--number t-file__coverage">88.57 %</td>
-            <td class="cell--number">62</td>
+            <td class="green strong cell--number t-file__coverage">100.00 %</td>
+            <td class="cell--number">65</td>
             <td class="cell--number">35</td>
-            <td class="cell--number">31</td>
-            <td class="cell--number">4</td>
+            <td class="cell--number">35</td>
+            <td class="cell--number">0</td>
             <td class="cell--number">2.29</td>
             
           </tr>
@@ -110,7 +110,7 @@
             <td class="cell--number">15</td>
             <td class="cell--number">15</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">5.27</td>
+            <td class="cell--number">5.40</td>
             
           </tr>
         
@@ -121,7 +121,7 @@
             <td class="cell--number">10</td>
             <td class="cell--number">10</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">2.70</td>
+            <td class="cell--number">2.80</td>
             
           </tr>
         
@@ -176,7 +176,7 @@
             <td class="cell--number">14</td>
             <td class="cell--number">14</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">3.86</td>
+            <td class="cell--number">3.93</td>
             
           </tr>
         
@@ -187,7 +187,7 @@
             <td class="cell--number">8</td>
             <td class="cell--number">8</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">3.00</td>
+            <td class="cell--number">2.25</td>
             
           </tr>
         
@@ -319,7 +319,7 @@
             <td class="cell--number">6</td>
             <td class="cell--number">6</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">4.00</td>
+            <td class="cell--number">4.67</td>
             
           </tr>
         
@@ -414,9 +414,9 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#efd35beada79cf54b215e3ce600e022fc006db19" class="src_link" title="spec/requests/api/v1/ads_spec.rb">spec/requests/api/v1/ads_spec.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">139</td>
-            <td class="cell--number">95</td>
-            <td class="cell--number">95</td>
+            <td class="cell--number">168</td>
+            <td class="cell--number">101</td>
+            <td class="cell--number">101</td>
             <td class="cell--number">0</td>
             <td class="cell--number">1.83</td>
             
@@ -487,8 +487,8 @@
   <div class="header">
     <h3>app/controllers/api/v1/ads_controller.rb</h3>
     <h4>
-      <span class="yellow">
-  88.57%
+      <span class="green">
+  100.0%
 </span>
 
       lines covered
@@ -498,8 +498,8 @@
 
     <div class="t-line-summary">
       <b>35</b> relevant lines.
-      <span class="green"><b>31</b> lines covered</span> and
-      <span class="red"><b>4</b> lines missed.</span>
+      <span class="green"><b>35</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
     </div>
 
     
@@ -686,13 +686,13 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="4" data-linenumber="17">
-            <span class="hits">4</span>
+          <li class="never" data-hits="" data-linenumber="17">
+            
             
 
             
 
-            <code class="ruby">        @car = Car.find_or_create_by(creation_year: car_params[:creation_year], engine_capacity: car_params[:engine_capacity], model_id: car_params[:model_id])</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -703,13 +703,24 @@
 
             
 
+            <code class="ruby">        @car = Car.find_or_create_by(creation_year: car_params[:creation_year], engine_capacity: car_params[:engine_capacity], model_id: car_params[:model_id])</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="4" data-linenumber="19">
+            <span class="hits">4</span>
+            
+
+            
+
             <code class="ruby">        if !@car.id</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="19">
-            
+          <li class="covered" data-hits="1" data-linenumber="20">
+            <span class="hits">1</span>
             
 
             
@@ -719,51 +730,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="20">
-            
-            
-
-            
-
-            <code class="ruby">        end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="4" data-linenumber="21">
-            <span class="hits">4</span>
-            
-
-            
-
-            <code class="ruby">        @ad = Ad.create(ad_params)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="4" data-linenumber="22">
-            <span class="hits">4</span>
-            
-
-            
-
-            <code class="ruby">        if @ad.save</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="4" data-linenumber="23">
-            <span class="hits">4</span>
-            
-
-            
-
-            <code class="ruby">          render json: AdRepresenter.new(@ad).to_json , status: :created</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="24">
+          <li class="never" data-hits="" data-linenumber="21">
             
             
 
@@ -774,117 +741,29 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="25">
-            
-            
-
+          <li class="covered" data-hits="3" data-linenumber="22">
+            <span class="hits">3</span>
             
 
-            <code class="ruby">          render json: @ad.errors, status: :unprocessable_entity</code>
+            
+
+            <code class="ruby">          @ad = Ad.create(ad_params)</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="26">
-            
-            
-
+          <li class="covered" data-hits="3" data-linenumber="23">
+            <span class="hits">3</span>
             
 
-            <code class="ruby">        end</code>
+            
+
+            <code class="ruby">          if @ad.save</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="27">
-            
-            
-
-            
-
-            <code class="ruby">      end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="28">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="29">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">      def update</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="2" data-linenumber="30">
-            <span class="hits">2</span>
-            
-
-            
-
-            <code class="ruby">        @car = @ad.car</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="2" data-linenumber="31">
-            <span class="hits">2</span>
-            
-
-            
-
-            <code class="ruby">        if !@car.update(car_params)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="32">
-            
-            
-
-            
-
-            <code class="ruby">          render json: @car.errors, status: :unprocessable_entity</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="33">
-            
-            
-
-            
-
-            <code class="ruby">        else</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="2" data-linenumber="34">
-            <span class="hits">2</span>
-            
-
-            
-
-            <code class="ruby">          if @ad.update(ad_params)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="2" data-linenumber="35">
+          <li class="covered" data-hits="2" data-linenumber="24">
             <span class="hits">2</span>
             
 
@@ -895,7 +774,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="36">
+          <li class="never" data-hits="" data-linenumber="25">
             
             
 
@@ -906,8 +785,8 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="37">
-            
+          <li class="covered" data-hits="1" data-linenumber="26">
+            <span class="hits">1</span>
             
 
             
@@ -917,7 +796,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="38">
+          <li class="never" data-hits="" data-linenumber="27">
             
             
 
@@ -928,7 +807,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="39">
+          <li class="never" data-hits="" data-linenumber="28">
             
             
 
@@ -939,13 +818,134 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="40">
+          <li class="never" data-hits="" data-linenumber="29">
             
             
 
             
 
             <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="30">
+            
+            
+
+            
+
+            <code class="ruby">      end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="31">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="32">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">      def update</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="3" data-linenumber="33">
+            <span class="hits">3</span>
+            
+
+            
+
+            <code class="ruby">        @car = @ad.car</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="3" data-linenumber="34">
+            <span class="hits">3</span>
+            
+
+            
+
+            <code class="ruby">        if !@car.update(car_params)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="35">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">          render json: @car.errors, status: :unprocessable_entity</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="36">
+            
+            
+
+            
+
+            <code class="ruby">        else</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="37">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">          if @ad.update(ad_params)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="38">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">            render json: AdRepresenter.new(@ad).to_json , status: :created</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="39">
+            
+            
+
+            
+
+            <code class="ruby">          else</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="40">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">            render json: @ad.errors, status: :unprocessable_entity</code>
           </li>
         </div>
       
@@ -956,7 +956,7 @@
 
             
 
-            <code class="ruby">      end</code>
+            <code class="ruby">          end</code>
           </li>
         </div>
       
@@ -967,29 +967,29 @@
 
             
 
+            <code class="ruby">        end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="43">
+            
+            
+
+            
+
             <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="43">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="44">
+            
             
 
             
 
-            <code class="ruby">      def destroy</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="2" data-linenumber="44">
-            <span class="hits">2</span>
-            
-
-            
-
-            <code class="ruby">        @ad.destroy</code>
+            <code class="ruby">      end</code>
           </li>
         </div>
       
@@ -1000,18 +1000,18 @@
 
             
 
-            <code class="ruby">      end</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="46">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="46">
+            <span class="hits">1</span>
             
 
-            <code class="ruby"></code>
+            
+
+            <code class="ruby">      def destroy</code>
           </li>
         </div>
       
@@ -1022,12 +1022,45 @@
 
             
 
+            <code class="ruby">        @ad.destroy</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="48">
+            
+            
+
+            
+
+            <code class="ruby">      end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="49">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="50">
+            <span class="hits">1</span>
+            
+
+            
+
             <code class="ruby">      private</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="48">
+          <li class="covered" data-hits="1" data-linenumber="51">
             <span class="hits">1</span>
             
 
@@ -1038,8 +1071,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="7" data-linenumber="49">
-            <span class="hits">7</span>
+          <li class="covered" data-hits="8" data-linenumber="52">
+            <span class="hits">8</span>
             
 
             
@@ -1049,7 +1082,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="50">
+          <li class="never" data-hits="" data-linenumber="53">
             
             
 
@@ -1060,7 +1093,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="51">
+          <li class="never" data-hits="" data-linenumber="54">
             
             
 
@@ -1071,7 +1104,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="52">
+          <li class="covered" data-hits="1" data-linenumber="55">
             <span class="hits">1</span>
             
 
@@ -1082,8 +1115,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="6" data-linenumber="53">
-            <span class="hits">6</span>
+          <li class="covered" data-hits="5" data-linenumber="56">
+            <span class="hits">5</span>
             
 
             
@@ -1093,8 +1126,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="6" data-linenumber="54">
-            <span class="hits">6</span>
+          <li class="covered" data-hits="5" data-linenumber="57">
+            <span class="hits">5</span>
             
 
             
@@ -1104,46 +1137,13 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="55">
+          <li class="never" data-hits="" data-linenumber="58">
             
             
 
             
 
             <code class="ruby">      end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="56">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="57">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">      def car_params</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="14" data-linenumber="58">
-            <span class="hits">14</span>
-            
-
-            
-
-            <code class="ruby">        params.require(:car).permit(:creation_year, :engine_capacity, :model_id)</code>
           </li>
         </div>
       
@@ -1154,12 +1154,45 @@
 
             
 
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="60">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">      def car_params</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="15" data-linenumber="61">
+            <span class="hits">15</span>
+            
+
+            
+
+            <code class="ruby">        params.require(:car).permit(:creation_year, :engine_capacity, :model_id)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="62">
+            
+            
+
+            
+
             <code class="ruby">      end</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="60">
+          <li class="never" data-hits="" data-linenumber="63">
             
             
 
@@ -1170,7 +1203,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="61">
+          <li class="never" data-hits="" data-linenumber="64">
             
             
 
@@ -1181,7 +1214,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="62">
+          <li class="never" data-hits="" data-linenumber="65">
             
             
 
@@ -2495,8 +2528,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="29" data-linenumber="11">
-            <span class="hits">29</span>
+          <li class="covered" data-hits="30" data-linenumber="11">
+            <span class="hits">30</span>
             
 
             
@@ -2583,8 +2616,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="19">
-            <span class="hits">1</span>
+          <li class="covered" data-hits="2" data-linenumber="19">
+            <span class="hits">2</span>
             
 
             
@@ -2790,8 +2823,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="18" data-linenumber="14">
-            <span class="hits">18</span>
+          <li class="covered" data-hits="19" data-linenumber="14">
+            <span class="hits">19</span>
             
 
             
@@ -3396,8 +3429,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="41" data-linenumber="20">
-            <span class="hits">41</span>
+          <li class="covered" data-hits="42" data-linenumber="20">
+            <span class="hits">42</span>
             
 
             
@@ -3526,8 +3559,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="9" data-linenumber="7">
-            <span class="hits">9</span>
+          <li class="covered" data-hits="6" data-linenumber="7">
+            <span class="hits">6</span>
             
 
             
@@ -3581,8 +3614,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="9" data-linenumber="12">
-            <span class="hits">9</span>
+          <li class="covered" data-hits="6" data-linenumber="12">
+            <span class="hits">6</span>
             
 
             
@@ -6780,8 +6813,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="10" data-linenumber="5">
-            <span class="hits">10</span>
+          <li class="covered" data-hits="12" data-linenumber="5">
+            <span class="hits">12</span>
             
 
             
@@ -6791,8 +6824,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="10" data-linenumber="6">
-            <span class="hits">10</span>
+          <li class="covered" data-hits="12" data-linenumber="6">
+            <span class="hits">12</span>
             
 
             
@@ -8212,8 +8245,8 @@
     
 
     <div class="t-line-summary">
-      <b>95</b> relevant lines.
-      <span class="green"><b>95</b> lines covered</span> and
+      <b>101</b> relevant lines.
+      <span class="green"><b>101</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
 
@@ -8258,8 +8291,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="14" data-linenumber="4">
-            <span class="hits">14</span>
+          <li class="covered" data-hits="15" data-linenumber="4">
+            <span class="hits">15</span>
             
 
             
@@ -8269,8 +8302,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="14" data-linenumber="5">
-            <span class="hits">14</span>
+          <li class="covered" data-hits="15" data-linenumber="5">
+            <span class="hits">15</span>
             
 
             
@@ -8280,8 +8313,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="14" data-linenumber="6">
-            <span class="hits">14</span>
+          <li class="covered" data-hits="15" data-linenumber="6">
+            <span class="hits">15</span>
             
 
             
@@ -8291,8 +8324,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="14" data-linenumber="7">
-            <span class="hits">14</span>
+          <li class="covered" data-hits="15" data-linenumber="7">
+            <span class="hits">15</span>
             
 
             
@@ -8874,8 +8907,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="8" data-linenumber="60">
-            <span class="hits">8</span>
+          <li class="covered" data-hits="9" data-linenumber="60">
+            <span class="hits">9</span>
             
 
             
@@ -8885,8 +8918,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="8" data-linenumber="61">
-            <span class="hits">8</span>
+          <li class="covered" data-hits="9" data-linenumber="61">
+            <span class="hits">9</span>
             
 
             
@@ -9342,7 +9375,7 @@
 
             
 
-            <code class="ruby">      describe &quot;POST /ads&quot; do</code>
+            <code class="ruby">      describe &quot;new сar without engine_capacity&quot; do</code>
           </li>
         </div>
       
@@ -9353,7 +9386,7 @@
 
             
 
-            <code class="ruby">        it &quot;create a new ad with existing сar&quot; do</code>
+            <code class="ruby">        describe &quot;POST /ads&quot; do</code>
           </li>
         </div>
       
@@ -9364,40 +9397,40 @@
 
             
 
-            <code class="ruby">          expect{</code>
+            <code class="ruby">          it &quot;get error&quot; do</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="105">
+          <li class="never" data-hits="" data-linenumber="105">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="106">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">            post &#39;/api/v1/ads&#39;, params: {car: {engine_capacity: car.engine_capacity, creation_year: car.creation_year, model_id: model.id}, ad: {price: 6000, description: &quot;Test desc!&quot;, user_id: user.id}}, headers: @auth_params</code>
+            <code class="ruby">            post &#39;/api/v1/ads&#39;, params: {car: {engine_capacity: &#39;&#39;, creation_year: 1999, model_id: model.id}, ad: {price: 6000, description: &quot;Test desc!&quot;, user_id: user.id}}, headers: @auth_params</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="106">
-            <span class="hits">2</span>
+          <li class="never" data-hits="" data-linenumber="107">
+            
             
 
             
 
-            <code class="ruby">          }.to change {Ad.count}.from(0).to(1)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="107">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">          expect(response).to have_http_status(:created)</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -9408,62 +9441,62 @@
 
             
 
-            <code class="ruby">          expect(response_body[&quot;description&quot;]).to eq(&quot;Test desc!&quot;)</code>
+            <code class="ruby">            expect(response).to have_http_status(:unprocessable_entity)</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="109">
+          <li class="covered" data-hits="1" data-linenumber="109">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">            expect(response_body).to eq({</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="110">
+            
+            
+
+            
+
+            <code class="ruby">                                          &quot;engine_capacity&quot; =&gt; [&quot;can&#39;t be blank&quot;]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="111">
+            
+            
+
+            
+
+            <code class="ruby">                                        })</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="112">
+            
+            
+
+            
+
+            <code class="ruby">          end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="113">
             
             
 
             
 
             <code class="ruby">        end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="110">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">        it &quot;create a new ad with new сar&quot; do</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="111">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">          expect{</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="112">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">            post &#39;/api/v1/ads&#39;, params: {car: {engine_capacity: 2.0, creation_year: 1999, model_id: model.id}, ad: {price: 6000, description: &quot;Test desc!&quot;, user_id: user.id}}, headers: @auth_params</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="2" data-linenumber="113">
-            <span class="hits">2</span>
-            
-
-            
-
-            <code class="ruby">          }.to change {Ad.count}.from(0).to(1)</code>
           </li>
         </div>
       
@@ -9474,29 +9507,29 @@
 
             
 
-            <code class="ruby">          expect(response).to have_http_status(:created)</code>
+            <code class="ruby">        describe &quot;PATCH /ads/:id&quot; do</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="115">
+          <li class="covered" data-hits="2" data-linenumber="115">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">          let!(:ad){FactoryBot.create(:ad, description: &#39;Test desc N1!&#39;, price: 4000, car: car, user: user) }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="116">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">          expect(response_body[&quot;description&quot;]).to eq(&quot;Test desc!&quot;)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="116">
-            
-            
-
-            
-
-            <code class="ruby">        end</code>
+            <code class="ruby">          it &quot;get error&quot; do</code>
           </li>
         </div>
       
@@ -9507,7 +9540,7 @@
 
             
 
-            <code class="ruby">      end</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -9518,18 +9551,18 @@
 
             
 
-            <code class="ruby">      describe &quot;PATCH /ads/:id&quot; do</code>
+            <code class="ruby">            patch &quot;/api/v1/ads/#{ad.id}&quot;, params: {car: {engine_capacity: &#39;&#39;, creation_year: 1999, model_id: model.id}, ad: {price: 6000, description: &quot;Test desc!&quot;, user_id: user.id}}, headers: @auth_params</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="119">
-            <span class="hits">2</span>
+          <li class="never" data-hits="" data-linenumber="119">
+            
             
 
             
 
-            <code class="ruby">        let!(:ad){FactoryBot.create(:ad, description: &#39;Test desc N1!&#39;, price: 4000, car: car, user: user) }</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -9540,7 +9573,7 @@
 
             
 
-            <code class="ruby">        it &quot;update the ad&quot; do</code>
+            <code class="ruby">            expect(response).to have_http_status(:unprocessable_entity)</code>
           </li>
         </div>
       
@@ -9551,29 +9584,29 @@
 
             
 
-            <code class="ruby">          patch &quot;/api/v1/ads/#{ad.id}&quot;, params: {car: {engine_capacity: car.engine_capacity, creation_year: car.creation_year, model_id: model.id}, ad: {price: 6000, description: &quot;Patch success!&quot;, user_id: user.id}}, headers: @auth_params</code>
+            <code class="ruby">            expect(response_body).to eq({</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="122">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="122">
+            
             
 
             
 
-            <code class="ruby">          expect(response).to have_http_status(:success)</code>
+            <code class="ruby">                                          &quot;engine_capacity&quot; =&gt; [&quot;can&#39;t be blank&quot;]</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="123">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="123">
+            
             
 
             
 
-            <code class="ruby">          expect(response_body[&quot;description&quot;]).to eq(&quot;Patch success!&quot;)</code>
+            <code class="ruby">                                        })</code>
           </li>
         </div>
       
@@ -9584,7 +9617,7 @@
 
             
 
-            <code class="ruby">        end</code>
+            <code class="ruby">          end</code>
           </li>
         </div>
       
@@ -9595,7 +9628,7 @@
 
             
 
-            <code class="ruby">      end</code>
+            <code class="ruby">        end</code>
           </li>
         </div>
       
@@ -9611,35 +9644,35 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="127">
+          <li class="never" data-hits="" data-linenumber="127">
+            
+            
+
+            
+
+            <code class="ruby">      end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="128">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">      describe &quot;DELETE /ads/:id&quot; do</code>
+            <code class="ruby">      describe &quot;new ad without price&quot; do</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="128">
-            <span class="hits">2</span>
+          <li class="covered" data-hits="3" data-linenumber="129">
+            <span class="hits">3</span>
             
 
             
 
             <code class="ruby">        let!(:ad){FactoryBot.create(:ad, description: &#39;Test desc N1!&#39;, price: 4000, car: car, user: user) }</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="129">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">        it &quot;delete the ad&quot; do</code>
           </li>
         </div>
       
@@ -9650,7 +9683,7 @@
 
             
 
-            <code class="ruby">          expect{</code>
+            <code class="ruby">        describe &quot;for new ad&quot; do</code>
           </li>
         </div>
       
@@ -9661,18 +9694,18 @@
 
             
 
-            <code class="ruby">            delete &quot;/api/v1/ads/#{ad.id}&quot;, headers: @auth_params</code>
+            <code class="ruby">          describe &quot;POST /ads&quot; do</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="132">
-            <span class="hits">2</span>
+          <li class="covered" data-hits="1" data-linenumber="132">
+            <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">          }.to change {Ad.count}.from(1).to(0)</code>
+            <code class="ruby">            it &quot;get error&quot; do</code>
           </li>
         </div>
       
@@ -9694,7 +9727,7 @@
 
             
 
-            <code class="ruby">          expect(response).to have_http_status(:no_content)</code>
+            <code class="ruby">              post &#39;/api/v1/ads&#39;, params: {car: {engine_capacity: 2.0, creation_year: 1999, model_id: model.id}, ad: {price: &#39;&#39;, description: &quot;Test desc!&quot;, user_id: user.id}}, headers: @auth_params</code>
           </li>
         </div>
       
@@ -9705,29 +9738,29 @@
 
             
 
-            <code class="ruby">        end</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="136">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="136">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">      end</code>
+            
+
+            <code class="ruby">              expect(response).to have_http_status(:unprocessable_entity)</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="137">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="137">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">    end</code>
+            
+
+            <code class="ruby">              expect(response_body).to eq({</code>
           </li>
         </div>
       
@@ -9738,12 +9771,331 @@
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby">                                            &quot;price&quot; =&gt; [&quot;can&#39;t be blank&quot;]</code>
           </li>
         </div>
       
         <div>
           <li class="never" data-hits="" data-linenumber="139">
+            
+            
+
+            
+
+            <code class="ruby">                                          })</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="140">
+            
+            
+
+            
+
+            <code class="ruby">            end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="141">
+            
+            
+
+            
+
+            <code class="ruby">          end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="142">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">          describe &quot;PATCH /ads/:id&quot; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="143">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">            it &quot;get error&quot; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="144">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="145">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">              patch &quot;/api/v1/ads/#{ad.id}&quot;, params: {car: {engine_capacity: 2.0, creation_year: 1999, model_id: model.id}, ad: {price: &#39;&#39;, description: &quot;Test desc!&quot;, user_id: user.id}}, headers: @auth_params</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="146">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="147">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">              expect(response).to have_http_status(:unprocessable_entity)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="148">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">              expect(response_body).to eq({</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="149">
+            
+            
+
+            
+
+            <code class="ruby">                                            &quot;price&quot; =&gt; [&quot;can&#39;t be blank&quot;]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="150">
+            
+            
+
+            
+
+            <code class="ruby">                                          })</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="151">
+            
+            
+
+            
+
+            <code class="ruby">            end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="152">
+            
+            
+
+            
+
+            <code class="ruby">          end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="153">
+            
+            
+
+            
+
+            <code class="ruby">        end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="154">
+            
+            
+
+            
+
+            <code class="ruby">      end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="155">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">      describe &quot;DELETE /ads/:id&quot; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="156">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        describe &quot;with wrong id&quot; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="157">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">          let!(:ad){FactoryBot.create(:ad, description: &#39;Test desc N1!&#39;, price: 4000, car: car, user: user) }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="158">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">          it &quot;get error&quot; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="159">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">            delete &quot;/api/v1/ads/#{ad.id + 1}&quot;, headers: @auth_params</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="160">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="161">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">            expect(response).to have_http_status(:not_found)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="162">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">            expect(response_body[&quot;errors&quot;]).to eq(&quot;Couldn&#39;t find Ad with &#39;id&#39;=#{ad.id+1}&quot;)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="163">
+            
+            
+
+            
+
+            <code class="ruby">          end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="164">
+            
+            
+
+            
+
+            <code class="ruby">        end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="165">
+            
+            
+
+            
+
+            <code class="ruby">      end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="166">
+            
+            
+
+            
+
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="167">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="168">
             
             
 

@@ -14,16 +14,19 @@ module Api
       end
 
       def create
+
         @car = Car.find_or_create_by(creation_year: car_params[:creation_year], engine_capacity: car_params[:engine_capacity], model_id: car_params[:model_id])
         if !@car.id
           render json: @car.errors, status: :unprocessable_entity if !@car.save
-        end
-        @ad = Ad.create(ad_params)
-        if @ad.save
-          render json: AdRepresenter.new(@ad).to_json , status: :created
         else
-          render json: @ad.errors, status: :unprocessable_entity
+          @ad = Ad.create(ad_params)
+          if @ad.save
+            render json: AdRepresenter.new(@ad).to_json , status: :created
+          else
+            render json: @ad.errors, status: :unprocessable_entity
+          end
         end
+
       end
 
       def update
